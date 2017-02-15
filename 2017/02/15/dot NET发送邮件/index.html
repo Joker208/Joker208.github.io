@@ -6,17 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://joker208.github.io">
-  <title>Archives: 2017/2 | Joker208的博客</title>
+  <title>.NET发送邮件 | Joker208的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="blog建好了，欢迎欢迎">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Joker208的博客">
-<meta property="og:url" content="https://joker208.github.io/archives/2017/02/index.html">
+  <meta name="description" content="分享一个.NET后台发送邮件的方法
+Demo如下
+这个Demo的使用情景是
+网站用户修改密码时的绑定邮箱验证
+123456789101112131415161718192021222324252627/// &amp;lt;summary&amp;gt;/// 发送邮件/// &amp;lt;/summary&amp;gt;/// &amp;lt;param name=&amp;quot;Email&amp;quot;&amp;gt;用户邮箱地址&amp;lt;/pa">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".NET发送邮件">
+<meta property="og:url" content="https://joker208.github.io/2017/02/15/dot NET发送邮件/index.html">
 <meta property="og:site_name" content="Joker208的博客">
-<meta property="og:description" content="blog建好了，欢迎欢迎">
+<meta property="og:description" content="分享一个.NET后台发送邮件的方法
+Demo如下
+这个Demo的使用情景是
+网站用户修改密码时的绑定邮箱验证
+123456789101112131415161718192021222324252627/// &amp;lt;summary&amp;gt;/// 发送邮件/// &amp;lt;/summary&amp;gt;/// &amp;lt;param name=&amp;quot;Email&amp;quot;&amp;gt;用户邮箱地址&amp;lt;/pa">
+<meta property="og:updated_time" content="2017-02-15T09:49:04.594Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Joker208的博客">
-<meta name="twitter:description" content="blog建好了，欢迎欢迎">
+<meta name="twitter:title" content=".NET发送邮件">
+<meta name="twitter:description" content="分享一个.NET后台发送邮件的方法
+Demo如下
+这个Demo的使用情景是
+网站用户修改密码时的绑定邮箱验证
+123456789101112131415161718192021222324252627/// &amp;lt;summary&amp;gt;/// 发送邮件/// &amp;lt;/summary&amp;gt;/// &amp;lt;param name=&amp;quot;Email&amp;quot;&amp;gt;用户邮箱地址&amp;lt;/pa">
   
     <link rel="alternative" href="/atom.xml" title="Joker208的博客" type="application/atom+xml">
   
@@ -152,36 +165,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-dot NET发送邮件" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/15/dot NET发送邮件/" class="archive-article-date">
-  	<time datetime="2017-02-15T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/15/dot NET发送邮件/">.NET发送邮件</a>
+    <h1 class="article-title" itemprop="name">
+      .NET发送邮件
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/02/15/dot NET发送邮件/" class="archive-article-date">
+  	<time datetime="2017-02-15T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>分享一个.NET后台发送邮件的方法</p>
+<p>Demo如下</p>
+<p>这个Demo的使用情景是</p>
+<p>网站用户修改密码时的绑定邮箱验证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/// &lt;summary&gt;</div><div class="line">/// 发送邮件</div><div class="line">/// &lt;/summary&gt;</div><div class="line">/// &lt;param name=&quot;Email&quot;&gt;用户邮箱地址&lt;/param&gt;</div><div class="line">/// &lt;param name=&quot;RanDom&quot;&gt;随机验证码&lt;/param&gt;</div><div class="line">/// &lt;param name=&quot;Name&quot;&gt;用户名&lt;/param&gt;</div><div class="line">public static void SendEmail(string Email, string RanDom, string Name)</div><div class="line">&#123;</div><div class="line">    MailMessage mail = new MailMessage();</div><div class="line">    mail.To.Add(new MailAddress(Email));</div><div class="line">    mail.Subject = &quot;邮件标题&quot;;</div><div class="line">    mail.SubjectEncoding = System.Text.Encoding.UTF8;</div><div class="line">    mail.Body = &quot;尊敬的用户:&quot; + Name + &quot;。修改密码给你发的验证码是：&quot; + RanDom + &quot;.该验证码有效时间为30分钟，请注意自己的帐号安全，不要外泄密码！！&quot;;</div><div class="line">    mail.BodyEncoding = System.Text.Encoding.UTF8;</div><div class="line">    mail.IsBodyHtml = true;</div><div class="line">    mail.Priority = MailPriority.High;</div><div class="line">    SmtpClient smtpclient = new SmtpClient();</div><div class="line">    smtpclient.UseDefaultCredentials = true;</div><div class="line">    string EmailClass = Email.Substring(Email.LastIndexOf(&apos;@&apos;));</div><div class="line">    smtpclient.Host = &quot;smtp&quot; + EmailClass;</div><div class="line">    mail.From = new MailAddress(&quot;发送邮件的邮箱地址&quot;);</div><div class="line">    smtpclient.Credentials = new System.Net.NetworkCredential(&quot;发送邮件的邮箱地址&quot;, &quot;密码&quot;);</div><div class="line"></div><div class="line">    smtpclient.Send(mail);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,187 +213,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://joker208.github.io/2017/02/15/dot NET发送邮件/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/15/CarouFredSel插件实现鼠标移入停止/" class="archive-article-date">
-  	<time datetime="2017-02-15T08:17:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/15/CarouFredSel插件实现鼠标移入停止/">CarouFredSel插件实现图片轮播</a>
-    </h1>
+  
+    <a href="/2017/02/15/CarouFredSel插件实现鼠标移入停止/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CarouFredSel插件实现图片轮播</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="dot NET发送邮件" data-title=".NET发送邮件" data-url="https://joker208.github.io/2017/02/15/dot NET发送邮件/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"joker208"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CarouFredSel</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/15/前端小技巧/" class="archive-article-date">
-  	<time datetime="2017-02-15T07:19:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/15/前端小技巧/">图片外加a标签导致图片无法显示完整</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/14/hexo常用命令/" class="archive-article-date">
-  	<time datetime="2017-02-14T09:07:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/14/hexo常用命令/">hexo常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/14/js天气插件/" class="archive-article-date">
-  	<time datetime="2017-02-14T08:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/14/js天气插件/">js天气插件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">天气插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/02/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/02/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -400,8 +335,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
