@@ -161,7 +161,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/15/dot NET发送邮件/">dot NET发送邮件</a>
+      <a class="article-title" href="/2017/02/15/dot NET发送邮件/">.NET发送邮件</a>
     </h1>
   
 
@@ -178,8 +178,9 @@
 <p>Demo如下</p>
 <p>这个Demo的使用情景是</p>
 <p>网站用户修改密码时的绑定邮箱验证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/// &lt;summary&gt;</div><div class="line">/// 发送邮件</div><div class="line">/// &lt;/summary&gt;</div><div class="line">/// &lt;param name=&quot;Email&quot;&gt;用户邮箱地址&lt;/param&gt;</div><div class="line">/// &lt;param name=&quot;RanDom&quot;&gt;随机验证码&lt;/param&gt;</div><div class="line">/// &lt;param name=&quot;Name&quot;&gt;用户名&lt;/param&gt;</div><div class="line">public static void SendEmail(string Email, string RanDom, string Name)</div><div class="line">&#123;</div><div class="line">    MailMessage mail = new MailMessage();</div><div class="line">    mail.To.Add(new MailAddress(Email));</div><div class="line">    mail.Subject = &quot;邮件标题&quot;;</div><div class="line">    mail.SubjectEncoding = System.Text.Encoding.UTF8;</div><div class="line">    mail.Body = &quot;尊敬的用户:&quot; + Name + &quot;。修改密码给你发的验证码是：&quot; + RanDom + &quot;.该验证码有效时间为30分钟，请注意自己的帐号安全，不要外泄密码！！&quot;;</div><div class="line">    mail.BodyEncoding = System.Text.Encoding.UTF8;</div><div class="line">    mail.IsBodyHtml = true;</div><div class="line">    mail.Priority = MailPriority.High;</div><div class="line">    SmtpClient smtpclient = new SmtpClient();</div><div class="line">    smtpclient.UseDefaultCredentials = true;</div><div class="line">    string EmailClass = Email.Substring(Email.LastIndexOf(&apos;@&apos;));</div><div class="line">    smtpclient.Host = &quot;smtp&quot; + EmailClass;</div><div class="line">    mail.From = new MailAddress(&quot;发送邮件的邮箱地址&quot;);</div><div class="line">    smtpclient.Credentials = new System.Net.NetworkCredential(&quot;发送邮件的邮箱地址&quot;, &quot;密码&quot;);</div><div class="line"></div><div class="line">    smtpclient.Send(mail);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2017/02/15/dot NET发送邮件/#more">more >></a>
+        
       
 
       
@@ -192,11 +193,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.NET</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dot NET</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
         		</li>
       		
 		</ul>
