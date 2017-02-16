@@ -177,23 +177,9 @@
         <p>今天在翻看以前的项目的时候发现了项目中对Hashtable的使用</p>
 <p>借这个机会巩固一下Hashtable的知识</p>
 <p>Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作</p>
-<p>当把某个元素添加到 Hashtable 时，将根据键的哈希代码将该元素放入存储桶中，由于是散列算法所以会出现一个哈希函数能够为两个不同的键生成相同的哈希代码，该键的后续查找将使用键的哈希代码只在一个特定存储桶中搜索，这将大大减少为查找一个元素所需的键比较的次数</p>
-<p>Hashtable 的加载因子确定元素与Hashtable 可拥有的元素数的最大比率。加载因子越小，平均查找速度越快，但消耗的内存也增加。默认的加载因子 0.72通常提供速度和大小之间的最佳平衡。当创建 Hashtable 时，也可以指定其他加载因子</p>
-<p>元素总量/ Hashtable 可拥有的元素数=加载因子</p>
-<p>当向 Hashtable 添加元素时，Hashtable 的实际加载因子将增加。当实际加载因子达到指定的加载因子时，Hashtable 中存储桶的数目自动增加到大于当前 Hashtable 存储桶数两倍的最小素数</p>
-<p>虽然Hash具有O(1)的数据检索效率，但它空间开销却通常很大，是以空间换取时间。所以Hashtable适用于读取操作频繁，写入操作很少的操作类型</p>
-<p>主要记录一下使用的场景以及方法，为以后作参照</p>
-<p>根据其查找效率高的特点用作<strong>比较去重</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">DataSet ds = app.Ds;</div><div class="line">Hashtable htData = new Hashtable();</div><div class="line">foreach (DataRow row in ds.Tables[0].Rows)</div><div class="line">&#123;</div><div class="line">	string title = row[&quot;Title&quot;].ToString();</div><div class="line">	if (htData.Contains(title))</div><div class="line">	&#123;</div><div class="line">		row.Delete();</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		htData.Add(title, &quot;&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>文章参考</p>
-<ul>
-<li><a href="http://baike.baidu.com/item/Hashtable" target="_blank" rel="external">Hashtable_百度百科</a></li>
-<li><a href="http://www.cnblogs.com/yangleiWPF/archive/2010/11/16/1878494.html" target="_blank" rel="external">hashtable详细介绍</a></li>
-<li><a href="http://www.cnblogs.com/tank110/archive/2010/10/18/1854013.html" target="_blank" rel="external">C#中HashTable的用法</a></li>
-</ul>
-</blockquote>
-
+        
+          <a class="article-more-a" href="/2017/02/16/Hashtable实用案例/#more">more >></a>
+        
       
 
       
@@ -272,6 +258,10 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
         		</li>

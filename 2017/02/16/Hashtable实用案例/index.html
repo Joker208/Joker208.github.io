@@ -10,23 +10,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天在翻看以前的项目的时候发现了项目中对Hashtable的使用
 借这个机会巩固一下Hashtable的知识
-Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作
-当把某个元素添加到 Hashtable 时，将根据键的哈希代码将该元素放入存储桶中，由于是散列算法所以会出现一个哈希函数能够为两个不同的键生成相同的哈希代码，该键的后续查找将使用键的哈希代码只在一个特定存">
+Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hashtable实用案例">
 <meta property="og:url" content="https://joker208.github.io/2017/02/16/Hashtable实用案例/index.html">
 <meta property="og:site_name" content="Joker208的博客">
 <meta property="og:description" content="今天在翻看以前的项目的时候发现了项目中对Hashtable的使用
 借这个机会巩固一下Hashtable的知识
-Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作
-当把某个元素添加到 Hashtable 时，将根据键的哈希代码将该元素放入存储桶中，由于是散列算法所以会出现一个哈希函数能够为两个不同的键生成相同的哈希代码，该键的后续查找将使用键的哈希代码只在一个特定存">
-<meta property="og:updated_time" content="2017-02-16T09:47:27.872Z">
+Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作">
+<meta property="og:updated_time" content="2017-02-16T09:50:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hashtable实用案例">
 <meta name="twitter:description" content="今天在翻看以前的项目的时候发现了项目中对Hashtable的使用
 借这个机会巩固一下Hashtable的知识
-Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作
-当把某个元素添加到 Hashtable 时，将根据键的哈希代码将该元素放入存储桶中，由于是散列算法所以会出现一个哈希函数能够为两个不同的键生成相同的哈希代码，该键的后续查找将使用键的哈希代码只在一个特定存">
+Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作">
   
     <link rel="alternative" href="/atom.xml" title="Joker208的博客" type="application/atom+xml">
   
@@ -185,6 +182,7 @@ Hashtable是非泛型的集合，所以在检索和存储值类型时通常会�
         <p>今天在翻看以前的项目的时候发现了项目中对Hashtable的使用</p>
 <p>借这个机会巩固一下Hashtable的知识</p>
 <p>Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作</p>
+<a id="more"></a>
 <p>当把某个元素添加到 Hashtable 时，将根据键的哈希代码将该元素放入存储桶中，由于是散列算法所以会出现一个哈希函数能够为两个不同的键生成相同的哈希代码，该键的后续查找将使用键的哈希代码只在一个特定存储桶中搜索，这将大大减少为查找一个元素所需的键比较的次数</p>
 <p>Hashtable 的加载因子确定元素与Hashtable 可拥有的元素数的最大比率。加载因子越小，平均查找速度越快，但消耗的内存也增加。默认的加载因子 0.72通常提供速度和大小之间的最佳平衡。当创建 Hashtable 时，也可以指定其他加载因子</p>
 <p>元素总量/ Hashtable 可拥有的元素数=加载因子</p>
