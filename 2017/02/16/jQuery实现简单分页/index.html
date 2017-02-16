@@ -20,7 +20,7 @@
 不需要特别多功能，只要有页数就行，网上的分页插件功能太多反倒累赘
 于是就自己写了一个简单的分页控件
 随便练习一下jQuery">
-<meta property="og:updated_time" content="2017-02-16T07:23:51.598Z">
+<meta property="og:updated_time" content="2017-02-16T07:30:06.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery实现简单分页">
 <meta name="twitter:description" content="今天做的一个首页下方的列表需要加一个分页功能
@@ -188,8 +188,8 @@
 <p>随便练习一下jQuery</p>
 <a id="more"></a>
 <p>贴代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;slideNav&quot;&gt;</div><div class="line">                &lt;wp:ChannelList ID=&quot;ChannelList2&quot; ChannelIndex=&quot;友情链接&quot; runat=&quot;Server&quot; Layout=&quot;None&quot; TotalNum=&quot;4&quot;&gt;</div><div class="line">                    &lt;span tagType=&quot;Item&quot;&gt;</div><div class="line">				            &lt;li class=&quot;Items prz&quot;&gt;</div><div class="line">					            &lt;a tagType=&quot;a&quot; class=&quot;Itemain&quot;&gt;集团下属公司&lt;/a&gt;</div><div class="line">					            &lt;ul class=&quot;itsPop pra&quot;&gt;</div><div class="line">                                    &lt;div tagType=&quot;ContentList&quot; Layout=&quot;None&quot;&gt;</div><div class="line">                                        &lt;span tagType=&quot;Item&quot;&gt;</div><div class="line">                                  &lt;li&gt;&lt;a tagType=&quot;a&quot; name=&quot;a1&quot;&gt;航天东方红卫星有限公司&lt;/a&gt;&lt;/li&gt;</div><div class="line">                                            &lt;/span&gt;</div><div class="line">                                        &lt;/div&gt;</div><div class="line">                                  &lt;div class=&quot;fanye pra pages&quot; style=&quot;right:10px;bottom:0px&quot;&gt;&lt;a href=&quot;javascript:;&quot; name=&quot;up&quot; class=&quot;up pagesaa ibox&quot;&gt;上一页&lt;/a&gt;&lt;a href=&quot;javascript:;&quot; name=&quot;down&quot; class=&quot;down pagesaa ibox&quot;&gt;下一页&lt;/a&gt;&lt;input class=&quot;nowPage&quot; value=&quot;1&quot; style=&quot;display:none;&quot;/&gt;&lt;input class=&quot;countRecord&quot; value=&quot;0&quot; style=&quot;display:none;&quot;/&gt;&lt;/div&gt;       </div><div class="line">					            &lt;/ul&gt;</div><div class="line">				            &lt;/li&gt;</div><div class="line">                    &lt;/span&gt;</div><div class="line">                &lt;/wp:ChannelList&gt;</div><div class="line">			&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"></div><div class="line">    //jty</div><div class="line">    $(&quot;.itsPop li&quot;).hide();</div><div class="line"></div><div class="line">    $(&quot;.itsPop&quot;).each(function()&#123;</div><div class="line">        $(this).find(&quot;li:lt(4)&quot;).show();</div><div class="line">    &#125;);</div><div class="line">    //$(&quot;.itsPop li:lt(4)&quot;).show();</div><div class="line">    $(&quot;.countRecord&quot;).each(function()&#123;</div><div class="line">        $(this).val($(this).parents(&quot;.itsPop&quot;).find(&quot;li&quot;).length);</div><div class="line">        if ($(this).val() &lt; 5) &#123;</div><div class="line">            $(this).siblings(&quot;a&quot;).hide();</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    $(&quot;.fanye a&quot;).each(function()&#123;</div><div class="line">        if ($(this).siblings(&quot;.nowPage&quot;).val() == 1) &#123; $(this).siblings(&quot;.up&quot;).attr(&quot;style&quot;, &quot;visibility:hidden;&quot;); &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    $(&quot;.fanye a&quot;).click(function () &#123;</div><div class="line">        console.log(&quot;click success&quot;);</div><div class="line">        var nowPage = $(this).siblings(&quot;.nowPage&quot;).val();//当前页 </div><div class="line">        var countRecord= $(this).siblings(&quot;.countRecord&quot;).val();//总记录数</div><div class="line">        var countPage = Math.ceil(countRecord / 4);</div><div class="line">        console.log(&quot;nowPage=&quot; + nowPage + &quot;countRecord&quot; + countRecord + &quot;countPage&quot; + countPage);</div><div class="line">        var classValue = $(this).attr(&quot;name&quot;);</div><div class="line">        if (&quot;up&quot; == classValue) &#123;</div><div class="line">            if (nowPage &gt; 1) &#123;</div><div class="line">                nowPage--;</div><div class="line">            &#125;</div><div class="line">        &#125; else if (&quot;down&quot; == classValue) &#123;</div><div class="line">            if (nowPage &lt; countPage) &#123;</div><div class="line">                nowPage++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        startIndex = (nowPage - 1) * 4 + 1;//获取每页开始记录数</div><div class="line">        endIndex = nowPage * 4;//获取每页结束记录数</div><div class="line"></div><div class="line">        $(this).parents(&quot;.fanye&quot;).siblings(&quot;li:gt(&quot; + (startIndex - 1) + &quot;)&quot;).show();</div><div class="line">        $(this).parents(&quot;.fanye&quot;).siblings(&quot;li:lt(&quot; + (endIndex - 1) + &quot;)&quot;).show();</div><div class="line">       // $(&quot;.itsPop li:gt(&quot; + (startIndex - 1) + &quot;)&quot;).show();</div><div class="line">        //$(&quot;.itsPop li:lt(&quot; + (endIndex - 1) + &quot;)&quot;).show();</div><div class="line"></div><div class="line">        //隐藏操作</div><div class="line">        //设置隐藏超出页数之外的数据</div><div class="line">        $(this).parents(&quot;.fanye&quot;).siblings(&quot;li:lt(&quot; + (startIndex - 1) + &quot;)&quot;).css(&quot;display&quot;, &quot;none&quot;);</div><div class="line">        $(this).parents(&quot;.fanye&quot;).siblings(&quot;li:gt(&quot; + (endIndex - 1) + &quot;)&quot;).css(&quot;display&quot;, &quot;none&quot;);</div><div class="line"></div><div class="line">        if (nowPage == 1) &#123; $(this).parent().find(&quot;.up&quot;).attr(&quot;style&quot;, &quot;visibility:hidden;&quot;); &#125; else &#123; $(this).parent().find(&quot;.up&quot;).attr(&quot;style&quot;, &quot;visibility:visible;&quot;); &#125;</div><div class="line">        if (nowPage == countPage) &#123; $(this).parent().find(&quot;.down&quot;).attr(&quot;style&quot;, &quot;visibility:hidden;&quot;); &#125; else &#123; $(this).parent().find(&quot;.down&quot;).attr(&quot;style&quot;, &quot;visibility:visible;&quot;); &#125;</div><div class="line">        $(this).siblings(&quot;.nowPage&quot;).val(nowPage);</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;slideNav&quot;&gt;</div><div class="line"> &lt;wp:ChannelList ID=&quot;ChannelList2&quot; ChannelIndex=&quot;友情链接&quot; runat=&quot;Server&quot; Layout=&quot;None&quot; TotalNum=&quot;4&quot;&gt;</div><div class="line">  &lt;span tagType=&quot;Item&quot;&gt;</div><div class="line">   &lt;li class=&quot;Items prz&quot;&gt;</div><div class="line">    &lt;a tagType=&quot;a&quot; class=&quot;Itemain&quot;&gt;集团下属公司&lt;/a&gt;</div><div class="line">     &lt;ul class=&quot;itsPop pra&quot;&gt;</div><div class="line">       &lt;div tagType=&quot;ContentList&quot; Layout=&quot;None&quot;&gt;</div><div class="line">        &lt;span tagType=&quot;Item&quot;&gt;</div><div class="line">         &lt;li&gt;&lt;a tagType=&quot;a&quot; name=&quot;a1&quot;&gt;航天东方红卫星有限公司&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;/span&gt;</div><div class="line">       &lt;/div&gt;</div><div class="line">       &lt;div class=&quot;fanye pra pages&quot; style=&quot;right:10px;bottom:0px&quot;&gt;</div><div class="line">        &lt;a href=&quot;javascript:;&quot; name=&quot;up&quot; class=&quot;up pagesaa ibox&quot;&gt;上一页&lt;/a&gt;</div><div class="line">        &lt;a href=&quot;javascript:;&quot; name=&quot;down&quot; class=&quot;down pagesaa ibox&quot;&gt;下一页&lt;/a&gt;</div><div class="line">        &lt;input class=&quot;nowPage&quot; value=&quot;1&quot; style=&quot;display:none;&quot;/&gt;</div><div class="line">        &lt;input class=&quot;countRecord&quot; value=&quot;0&quot; style=&quot;display:none;&quot;/&gt;</div><div class="line">       &lt;/div&gt;       </div><div class="line">    &lt;/ul&gt;</div><div class="line">   &lt;/li&gt;</div><div class="line">  &lt;/span&gt;</div><div class="line">  &lt;/wp:ChannelList&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    $(&quot;.itsPop li&quot;).hide();</div><div class="line"></div><div class="line">    $(&quot;.itsPop&quot;).each(function()&#123;</div><div class="line">        $(this).find(&quot;li:lt(4)&quot;).show();</div><div class="line">    &#125;);</div><div class="line">    //$(&quot;.itsPop li:lt(4)&quot;).show();</div><div class="line">    $(&quot;.countRecord&quot;).each(function()&#123;</div><div class="line">        $(this).val($(this).parents(&quot;.itsPop&quot;).find(&quot;li&quot;).length);</div><div class="line">        if ($(this).val() &lt; 5) &#123;</div><div class="line">            $(this).siblings(&quot;a&quot;).hide();</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    $(&quot;.fanye a&quot;).each(function()&#123;</div><div class="line">        if ($(this).siblings(&quot;.nowPage&quot;).val() == 1) &#123; $(this).siblings(&quot;.up&quot;).attr(&quot;style&quot;, &quot;visibility:hidden;&quot;); &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    $(&quot;.fanye a&quot;).click(function () &#123;</div><div class="line">        console.log(&quot;click success&quot;);</div><div class="line">        var nowPage = $(this).siblings(&quot;.nowPage&quot;).val();//当前页 </div><div class="line">        var countRecord= $(this).siblings(&quot;.countRecord&quot;).val();//总记录数</div><div class="line">        var countPage = Math.ceil(countRecord / 4);</div><div class="line">        //console.log(&quot;nowPage=&quot; + nowPage + &quot;countRecord&quot; + countRecord + &quot;countPage&quot; + countPage);</div><div class="line">        var classValue = $(this).attr(&quot;name&quot;);</div><div class="line">        if (&quot;up&quot; == classValue) &#123;</div><div class="line">            if (nowPage &gt; 1) &#123;</div><div class="line">                nowPage--;</div><div class="line">            &#125;</div><div class="line">        &#125; else if (&quot;down&quot; == classValue) &#123;</div><div class="line">            if (nowPage &lt; countPage) &#123;</div><div class="line">                nowPage++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        startIndex = (nowPage - 1) * 4 + 1;//获取每页开始记录数</div><div class="line">        endIndex = nowPage * 4;//获取每页结束记录数</div><div class="line"></div><div class="line">        $(this).parents(&quot;.fanye&quot;).siblings(&quot;li:gt(&quot; + (startIndex - 1) + &quot;)&quot;).show();</div><div class="line">        $(this).parents(&quot;.fanye&quot;).siblings(&quot;li:lt(&quot; + (endIndex - 1) + &quot;)&quot;).show();</div><div class="line">        //$(&quot;.itsPop li:gt(&quot; + (startIndex - 1) + &quot;)&quot;).show();</div><div class="line">        //$(&quot;.itsPop li:lt(&quot; + (endIndex - 1) + &quot;)&quot;).show();</div><div class="line"></div><div class="line">        //隐藏操作</div><div class="line">        //设置隐藏超出页数之外的数据</div><div class="line">        $(this).parents(&quot;.fanye&quot;).siblings(&quot;li:lt(&quot; + (startIndex - 1) + &quot;)&quot;).css(&quot;display&quot;, &quot;none&quot;);</div><div class="line">        $(this).parents(&quot;.fanye&quot;).siblings(&quot;li:gt(&quot; + (endIndex - 1) + &quot;)&quot;).css(&quot;display&quot;, &quot;none&quot;);</div><div class="line"></div><div class="line">        if (nowPage == 1) &#123; $(this).parent().find(&quot;.up&quot;).attr(&quot;style&quot;, &quot;visibility:hidden;&quot;); &#125; else &#123; $(this).parent().find(&quot;.up&quot;).attr(&quot;style&quot;, &quot;visibility:visible;&quot;); &#125;</div><div class="line">        if (nowPage == countPage) &#123; $(this).parent().find(&quot;.down&quot;).attr(&quot;style&quot;, &quot;visibility:hidden;&quot;); &#125; else &#123; $(this).parent().find(&quot;.down&quot;).attr(&quot;style&quot;, &quot;visibility:visible;&quot;); &#125;</div><div class="line">        $(this).siblings(&quot;.nowPage&quot;).val(nowPage);</div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
       
 
       
@@ -275,6 +275,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/02/16/Hashtable实用案例/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hashtable实用案例
+        
+      </div>
+    </a>
   
   
     <a href="/2017/02/15/dot NET发送邮件/" id="article-nav-older" class="article-nav-link-wrap">
@@ -400,19 +409,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CarouFredSel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -424,11 +429,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分页</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CarouFredSel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,15 +449,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分页</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">一键分享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">影评</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
             
             <div class="clearfix"></div>
@@ -519,7 +536,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">尼古拉斯·路痴后入心机原则博学焦&lt;br&gt;北漂后端程序猿&lt;br&gt;一条梦想翻身的咸鱼&lt;br&gt;ACG爱好者</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">尼古拉斯·路痴后入心机原则博学焦&lt;br&gt;北漂程序猿&lt;br&gt;一条梦想翻身的咸鱼&lt;br&gt;动漫游戏爱好者</div>
   	  	
     	</section>
     
