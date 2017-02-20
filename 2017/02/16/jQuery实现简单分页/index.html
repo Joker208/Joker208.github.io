@@ -20,7 +20,7 @@
 不需要特别多功能，只要有页数就行，网上的分页插件功能太多反倒累赘
 于是就自己写了一个简单的分页控件
 随便练习一下jQuery">
-<meta property="og:updated_time" content="2017-02-20T13:52:12.420Z">
+<meta property="og:updated_time" content="2017-02-20T14:13:53.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery实现简单分页">
 <meta name="twitter:description" content="今天做的一个首页下方的列表需要加一个分页功能
@@ -69,9 +69,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/categories/随笔/">随笔</a></li>
 	        
-				<li><a href="/tags/技术/">技术</a></li>
+				<li><a href="/categories/技术/">技术</a></li>
 	        
 			</ul>
 		</nav>
@@ -151,9 +151,9 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/技术/">技术</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/技术/">技术</a></li>
 		        
 				</ul>
 			</nav>
@@ -218,15 +218,22 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分页</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术/" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
