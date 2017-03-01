@@ -164,6 +164,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-net验证码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/01/net验证码/">.NET验证码</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/01/net验证码/" class="archive-article-date">
+  	<time datetime="2017-03-01T07:56:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>分享一个.NET验证码的Demo</p>
+<p>validatecode.aspx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line">&lt;%@ WebHandler Language=&quot;C#&quot; Class=&quot;validatecode&quot; %&gt;</div><div class="line">using System;</div><div class="line">using System.Web;</div><div class="line">using System.Drawing;</div><div class="line">public class validatecode : IHttpHandler, System.Web.SessionState.IRequiresSessionState</div><div class="line">&#123;</div><div class="line">    public string charSet = &quot;0,1,2,3,4,5,6,8,9,A,B,C,D,E,F,G,H,J,K,M,N,P,R,S,U,W,X,Y&quot;;</div><div class="line">    public void ProcessRequest(HttpContext context)</div><div class="line">    &#123;</div><div class="line">        string validateCode = CreateRandomCode(4);</div><div class="line">        context.Session[&quot;ValidateCode&quot;] = validateCode;</div><div class="line">        context.Response.SetCookie(new HttpCookie(&quot;ValidateCode&quot;, validateCode));</div><div class="line">        CreateImage(validateCode, context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public bool IsReusable</div><div class="line">    &#123;</div><div class="line">        get</div><div class="line">        &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    /// &lt;summary&gt;    </div><div class="line">    /// 生成验证码          </div><div class="line">    /// &lt;param name=&quot;n&quot;&gt;位数&lt;/param&gt;   </div><div class="line">    /// &lt;returns&gt;验证码字符串&lt;/returns&gt;   </div><div class="line">    private string CreateRandomCode(int n)</div><div class="line">    &#123;</div><div class="line">        string[] CharArray = charSet.Split(&apos;,&apos;);</div><div class="line">        string randomCode = &quot;&quot;;</div><div class="line">        int temp = -1;</div><div class="line">        Random rand = new Random();</div><div class="line">        for (int i = 0; i &lt; n; i++)</div><div class="line">        &#123;</div><div class="line">            if (temp != -1)</div><div class="line">            &#123;</div><div class="line">                rand = new Random(i * temp * ((int)DateTime.Now.Ticks));</div><div class="line">            &#125; int t = rand.Next(CharArray.Length - 1);</div><div class="line">            if (temp == t)</div><div class="line">            &#123;</div><div class="line">                return CreateRandomCode(n);</div><div class="line">            &#125; temp = t;</div><div class="line">            randomCode += CharArray[t];</div><div class="line">        &#125;</div><div class="line">        return randomCode;</div><div class="line">    &#125;</div><div class="line">    private void CreateImage(string checkCode, HttpContext context)</div><div class="line">    &#123;</div><div class="line">        int iwidth = (int)(checkCode.Length * 13);</div><div class="line">        System.Drawing.Bitmap image = new System.Drawing.Bitmap(iwidth, 23);</div><div class="line">        Graphics g = Graphics.FromImage(image);</div><div class="line"></div><div class="line">        Font f = new System.Drawing.Font(&quot;Arial&quot;, 12,</div><div class="line">       (System.Drawing.FontStyle.Italic |</div><div class="line">       System.Drawing.FontStyle.Bold));        // 前景色        </div><div class="line">        Brush b = new System.Drawing.SolidBrush(Color.Black);        // 背景色       </div><div class="line">        g.Clear(Color.White);        // 填充文字        </div><div class="line">        g.DrawString(checkCode, f, b, 0, 1);        // 随机线条        </div><div class="line">        Pen linePen = new Pen(Color.Gray, 0); Random rand = new Random();</div><div class="line">        for (int i = 0; i &lt; 5; i++)</div><div class="line">        &#123;</div><div class="line">            int x1 = rand.Next(image.Width);</div><div class="line">            int y1 = rand.Next(image.Height);</div><div class="line">            int x2 = rand.Next(image.Width);</div><div class="line">            int y2 = rand.Next(image.Height);</div><div class="line">            g.DrawLine(linePen, x1, y1, x2, y2);</div><div class="line">        &#125;        // 随机点        </div><div class="line">        for (int i = 0; i &lt; 30; i++)</div><div class="line">        &#123;</div><div class="line">            int x = rand.Next(image.Width);</div><div class="line">            int y = rand.Next(image.Height);</div><div class="line">            image.SetPixel(x, y, Color.Gray);</div><div class="line">        &#125;        // 边框       </div><div class="line">        g.DrawRectangle(new Pen(Color.Gray), 0, 0, image.Width - 1, image.Height - 1);        // 输出图片  </div><div class="line">        System.IO.MemoryStream ms = new System.IO.MemoryStream();</div><div class="line">        image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);</div><div class="line">        context.Response.ClearContent();</div><div class="line">        context.Response.ContentType = &quot;image/Jpeg&quot;;</div><div class="line">        context.Response.BinaryWrite(ms.ToArray());</div><div class="line">        g.Dispose();</div><div class="line">        image.Dispose();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>index.aspx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;span&gt;验证码：&lt;/span&gt;</div><div class="line">&lt;input type=&quot;text&quot; id=&quot;input&quot; /&gt;</div><div class="line">&lt;a href=&quot;javascript:;&quot;&gt;</div><div class="line">   &lt;img src=&quot;validatecode.ashx&quot; id=&quot;codeImg&quot; onclick=&quot;this.src=&apos;validatecode.ashx?time=&apos;+new Date().getTime()&quot;&gt;</div><div class="line">&lt;/a&gt;</div><div class="line">&lt;a class=&quot;submit&quot;&gt;提交&lt;/a&gt;</div><div class="line"></div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">    $(&quot;.submit&quot;).click(function()&#123;</div><div class="line">        if ($(&quot;#input&quot;).val().toUpperCase().trim() != GetCookie(&quot;ValidateCode&quot;)) &#123;</div><div class="line">            $(&quot;#codeImg&quot;).attr(&quot;src&quot;, &quot;validatecode.ashx?time=&quot; + new Date().getTime());</div><div class="line"></div><div class="line">            alert(&quot;验证码错误&quot;);</div><div class="line">            return;</div><div class="line">        &#125; else &#123;</div><div class="line">            alert(&quot;验证码正确&quot;);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    function GetCookie(sMainName) &#123;</div><div class="line">        var re = new RegExp((sMainName + &quot;=([^;$]*)&quot;), &quot;i&quot;);</div><div class="line">        return re.test(unescape(document.cookie)) ? RegExp[&quot;$1&quot;] : &quot;&quot;;</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.NET</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">验证码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术/" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/01/net验证码/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-设计模式初探" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -491,88 +570,6 @@
 
 
   
-    <article id="post-dot NET发送邮件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/15/dot NET发送邮件/">.NET发送邮件</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/15/dot NET发送邮件/" class="archive-article-date">
-  	<time datetime="2017-02-15T09:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>分享一个.NET后台发送邮件的方法</p>
-<p>Demo如下</p>
-<p>这个Demo的使用情景是</p>
-<p>网站用户修改密码时的绑定邮箱验证</p>
-        
-          <a class="article-more-a" href="/2017/02/15/dot NET发送邮件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.NET</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">邮件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术/" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/15/dot NET发送邮件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -666,6 +663,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">.NET</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">邮件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
@@ -674,27 +679,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.NET</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">邮件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,6 +691,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -714,11 +703,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">影评</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">一键分享</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,11 +715,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">验证码</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">鸡汤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">一键分享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">影评</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>
