@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://joker208.github.io/"/>
-  <updated>2017-03-01T09:44:41.170Z</updated>
+  <updated>2020-05-18T08:16:30.164Z</updated>
   <id>https://joker208.github.io/</id>
   
   <author>
@@ -16,11 +16,423 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Golang学习笔记（十四）</title>
+    <link href="https://joker208.github.io/2018/09/19/Golang%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/"/>
+    <id>https://joker208.github.io/2018/09/19/Golang学习笔记（十四）/</id>
+    <published>2018-09-18T16:00:00.000Z</published>
+    <updated>2020-05-18T08:16:30.164Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Go语言特性"><a href="#Go语言特性" class="headerlink" title="Go语言特性"></a>Go语言特性</h2><ul>
+<li>可直接编译成机器码，直接生成可执行二进制文件</li>
+<li>静态类型语言，可以在编译的时候检查出来隐藏的大多数问题<ul>
+<li>动态类型语言：是指在运行期间才去做数据类型检查的语言，说的是<strong>数据类型</strong></li>
+<li>动态语言：说的是运行是改变结构，说的是<strong>代码结构</strong></li>
+<li>静态类型语言：静态语言的数据类型是在编译期间（或运行之前）确定的，编写代码的时候要明确确定变量的数据类型</li>
+<li>静态语言：与动态语言相对应的，运行时结构不可变的语言就是静态语言</li>
+</ul>
+</li>
+<li>大量的第三方包可以使用</li>
+<li>语言层面支持并发 go hello（）</li>
+<li>支持垃圾回收</li>
+<li>语言简洁，关键字只有25个，支持继承、重载、对象</li>
+<li>跨平台，引用plan9的代码，不依赖系统信息<ul>
+<li>Plan9是一个分布式操作系统，它能把网络上一切的资源当作文件来进行使用。Plan9中最本质的思想是“一切皆是文件”</li>
+</ul>
+</li>
+</ul>
+<h2 id="Go语言的优劣"><a href="#Go语言的优劣" class="headerlink" title="Go语言的优劣"></a>Go语言的优劣</h2><ul>
+<li>Go语言适合做服务端程序，例如各种web程序，服务器软件，命令行工具</li>
+<li>Go语言不适合开发有图形界面的应用程序，官方没有提供相关的图形库</li>
+<li>不支持多态<ul>
+<li>多态：多态性是允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。简单的说：允许将子类类型的指针赋值给父类类型的指针（一个接口，多种方法）。<br>C++ 支持两种多态性：编译时多态性，运行时多态性。<br>a、编译时多态性（静态多态）：通过重载函数实现<br>b、运行时多态性（动态多态）：通过虚函数实现。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Go语言特性&quot;&gt;&lt;a href=&quot;#Go语言特性&quot; class=&quot;headerlink&quot; title=&quot;Go语言特性&quot;&gt;&lt;/a&gt;Go语言特性&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;可直接编译成机器码，直接生成可执行二进制文件&lt;/li&gt;
+&lt;li&gt;静态类型语言，可以在编译的时候检
+    
+    </summary>
+    
+      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Golang" scheme="https://joker208.github.io/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang学习笔记（四）</title>
+    <link href="https://joker208.github.io/2018/06/19/Golang%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://joker208.github.io/2018/06/19/Golang学习笔记（四）/</id>
+    <published>2018-06-18T16:00:00.000Z</published>
+    <updated>2020-05-18T10:22:06.947Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="GO指南"><a href="#GO指南" class="headerlink" title="GO指南"></a>GO指南</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fmt.Println(<span class="string">"My favorite number is"</span>, rand.Intn(<span class="number">10</span>))</div></pre></td></tr></table></figure>
+<p>例子上的代码运行出的结果是不会变化的并不能算真正的随机</p>
+<p>需要添加随机种子</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rand.Seed(time.Now().UnixNano())</div></pre></td></tr></table></figure>
+<p>首字母大写为共用方法，可以被外部调用<br>首字母小写只能在包内调用</p>
+<p>初始化变量时可以省略类型，从初始值中获得类型</p>
+<p>‘:=’结构不能用在函数外</p>
+<p>byte 是 uint8 的别名<br>rune 是 int32 的别名</p>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p><strong>数值转换</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">11</span></div><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="keyword">float64</span>(i)</div><div class="line"><span class="keyword">var</span> u <span class="keyword">uint</span> = <span class="keyword">uint</span>(f)</div></pre></td></tr></table></figure>
+<p><strong>int 转 string</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">11</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span>= strconv.Itoa(i)</div></pre></td></tr></table></figure>
+<p><strong>int64 转 string</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int64</span> = <span class="number">11</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span>= strconv.FormatInt(i,<span class="number">10</span>)</div></pre></td></tr></table></figure>
+<p><strong>uint64 转 string</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">uint64</span>=<span class="number">11</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span>=strconv.FormatUint(i,<span class="number">10</span>)</div></pre></td></tr></table></figure>
+<p><strong>string 转 int</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"11"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">int</span></div><div class="line">i, err := strconv.Atoi(s)</div></pre></td></tr></table></figure>
+<p><strong>string 转 int64</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"11"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">int64</span></div><div class="line">i, err := strconv.ParseInt(s, <span class="number">10</span>, <span class="number">64</span>)</div></pre></td></tr></table></figure>
+<p><strong>float64 转 string</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="number">11.1</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = strconv.FormatFloat(f, <span class="string">'f'</span>, <span class="number">-1</span>, <span class="number">64</span>)</div></pre></td></tr></table></figure>
+<p><strong>string 转 float64</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"11.1"</span></div><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span></div><div class="line">f, err := strconv.ParseFloat(s, <span class="number">64</span>)</div></pre></td></tr></table></figure>
+<p>switch中fallthrough会直接执行下一个case或default语句（无论条件是否满足）<br>fallthrough必须是case中的最后一句</p>
+<p>defer调用的函数会以栈的形式存储，调用时遵照后进先出的原则</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">		<span class="keyword">defer</span> fmt.Println(i)</div><div class="line">	&#125;</div><div class="line">	fmt.Println(<span class="string">"done"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">API server listening at: 127.0.0.1:47919</div><div class="line">done</div><div class="line">9</div><div class="line">8</div><div class="line">7</div><div class="line">6</div><div class="line">5</div><div class="line">4</div><div class="line">3</div><div class="line">2</div><div class="line">1</div><div class="line">0</div></pre></td></tr></table></figure>
+<h3 id="slice添加元素"><a href="#slice添加元素" class="headerlink" title="slice添加元素"></a>slice添加元素</h3><p>func append(s []T, vs …T) []T</p>
+<p>第一个参数为要添加元素的slice<br>第二个参数为要添加的元素</p>
+<p><strong>原理</strong> </p>
+<p>append首先检查是否到达最大容量cap</p>
+<p>没有的话就直接在后面添加元素</p>
+<p>如果超过cap向内存申请一个长度是原来两倍的新数组</p>
+<p>将原来的值都复制过去</p>
+<p>slice指向新的数组并释放掉原来的数组</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包就是一个函数引用函数以外的变量</p>
+<p>斐波那契闭包</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">fibonacci</span><span class="params">()</span> <span class="title">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</div><div class="line">	a, b := <span class="number">0</span>, <span class="number">1</span></div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</div><div class="line">		temp := a</div><div class="line">		a, b = b, (a + b)</div><div class="line">		<span class="keyword">return</span> temp</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	f := fibonacci()</div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">		fmt.Println(f())</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="goroutine线程"><a href="#goroutine线程" class="headerlink" title="goroutine线程"></a>goroutine线程</h3><p>go f() 开启新的线程</p>
+<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>管道创建</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"></div><div class="line">ch &lt;- v <span class="comment">//向管道传值</span></div><div class="line">v &lt;- ch <span class="comment">//接收管道的值</span></div></pre></td></tr></table></figure>
+<p>一般情况下，只有传值或只有接收都会造成线程阻塞</p>
+<p>ch := make(chan int,10)//缓冲管道</p>
+<p>当管道有缓冲时，当缓冲区满的时候向管道传值才会阻塞<br>当缓冲区为空的时候接收管道值才会阻塞</p>
+<p>select可以使多个通信在同一个线程上等待</p>
+<p>switch的case不需要break结尾<br>switch的case不需要break结尾<br>switch的case不需要break结尾</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;GO指南&quot;&gt;&lt;a href=&quot;#GO指南&quot; class=&quot;headerlink&quot; title=&quot;GO指南&quot;&gt;&lt;/a&gt;GO指南&lt;/h2&gt;&lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Golang" scheme="https://joker208.github.io/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang学习笔记（三）</title>
+    <link href="https://joker208.github.io/2018/06/10/Golang%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://joker208.github.io/2018/06/10/Golang学习笔记（三）/</id>
+    <published>2018-06-09T16:00:00.000Z</published>
+    <updated>2020-05-18T10:14:59.792Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="golang-并行"><a href="#golang-并行" class="headerlink" title="golang  并行"></a>golang  并行</h2><h3 id="goroutines、信道和死锁"><a href="#goroutines、信道和死锁" class="headerlink" title="goroutines、信道和死锁"></a>goroutines、信道和死锁</h3><h4 id="（一）goroutines"><a href="#（一）goroutines" class="headerlink" title="（一）goroutines"></a>（一）goroutines</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    loop()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>goroutine还没来得及跑loop的时候，主函数已经退出</p>
+<p>这时需要一个类似join的东西来阻塞住主线。那就是信道</p>
+<h4 id="（二）信道"><a href="#（二）信道" class="headerlink" title="（二）信道"></a>（二）信道</h4><p>信道是goroutine之间互相通讯的东西。<br>类似我们Unix上的管道（可以在进程间传递消息）， 用来goroutine之间发消息和接收消息。<br>其实，就是在做goroutine之间的内存共享。</p>
+<p>使用make来建立一个信道:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> messages <span class="keyword">chan</span> <span class="keyword">string</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</div><div class="line">    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">(message <span class="keyword">string</span>)</span></span> &#123;</div><div class="line">        messages &lt;- message <span class="comment">// 存消息</span></div><div class="line">    &#125;(<span class="string">"Ping!"</span>)</div><div class="line">    fmt.Println(&lt;-messages) <span class="comment">// 取消息</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>默认的，信道的存消息和取消息都是阻塞的 (叫做无缓冲的信道)</p>
+<p>无缓冲的信道在取消息和存消息的时候都会挂起当前的goroutine，除非另一端已经准备好</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ch <span class="keyword">chan</span> <span class="keyword">int</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</div><div class="line">    ch &lt;- <span class="number">0</span>  <span class="comment">// 向ch中加数据，如果没有其他goroutine来取走这个数据，那么挂起foo, 直到main函数把0这个数据拿走</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">go</span> foo()</div><div class="line">    &lt;- ch <span class="comment">// 从ch取数据，如果ch中还没放数据，那就挂起main线，直到foo函数中放数据为止</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果不用信道来阻塞主线的话，主线就会过早跑完，loop线都没有机会执行</p>
+<p>其实，无缓冲的信道永远不会存储数据，只负责数据的流通</p>
+<p>从无缓冲信道取数据，必须要有数据流进来才可以，否则当前线阻塞</p>
+<p>数据流入无缓冲信道, 如果没有其他goroutine来拿走这个数据，那么当前线阻塞</p>
+<p>如果信道正有数据在流动，我们还要加入数据，或者信道干涩，我们一直向无数据流入的空信道取数据就会引起死锁</p>
+<h4 id="（三）死锁"><a href="#（三）死锁" class="headerlink" title="（三）死锁"></a>（三）死锁</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line">    &lt;- ch <span class="comment">// ??main goroutine, ??c??</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 只有一个goroutine, 所以当你向里面加数据或者存数据的话，都会锁死信道，<br> 并且阻塞当前 goroutine, 也就是所有的goroutine(其实就main线一个)都在等待信道的开放(没人拿走数据信道是不会开放的)，<br> 也就是死锁</p>
+<p>几个死锁的例子<br>1.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line">    ch &lt;- <span class="number">1</span> <span class="comment">// 1流入信道，堵塞当前线, 没人取走数据信道不会打开</span></div><div class="line">    fmt.Println(<span class="string">"This line code wont run"</span>) <span class="comment">//在此行执行之前Go就会报死锁</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ch1 <span class="keyword">chan</span> <span class="keyword">int</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"><span class="keyword">var</span> ch2 <span class="keyword">chan</span> <span class="keyword">int</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">say</span><span class="params">(s <span class="keyword">string</span>)</span></span> &#123;</div><div class="line">    fmt.Println(s)</div><div class="line">    ch1 &lt;- &lt;- ch2 <span class="comment">// ch1 等待 ch2流出的数据</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">go</span> say(<span class="string">"hello"</span>)</div><div class="line">    &lt;- ch1  <span class="comment">// 堵塞主线</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">c, quit := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"></div><div class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</div><div class="line">   c &lt;- <span class="number">1</span>  <span class="comment">// c通道的数据没有被其他goroutine读取走，堵塞当前goroutine</span></div><div class="line">   quit &lt;- <span class="number">0</span> <span class="comment">// quit始终没有办法写入数据</span></div><div class="line">&#125;()</div><div class="line"></div><div class="line">&lt;- quit <span class="comment">// quit 等待数据的写</span></div></pre></td></tr></table></figure>
+<p><strong>避免死锁的方法:</strong></p>
+<ol>
+<li><p>避免数据有存无取 或者有取无存</p>
+</li>
+<li><p>使用缓冲信道</p>
+</li>
+</ol>
+<h4 id="缓冲信道"><a href="#缓冲信道" class="headerlink" title="缓冲信道"></a>缓冲信道</h4><p>在声明一个信道的时候，我们给make以第二个参数来指明它的容量(默认为0，即无缓冲):</p>
+<p>var ch chan int = make(chan int, 2) // 写入2个元素都不会阻塞当前goroutine, 存储个数达到2的时候会阻塞</p>
+<p>缓冲信道是先进先出的，我们可以把缓冲信道看作为一个线程安全的队列：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">3</span>)</div><div class="line">    ch &lt;- <span class="number">1</span></div><div class="line">    ch &lt;- <span class="number">2</span></div><div class="line">    ch &lt;- <span class="number">3</span></div><div class="line"></div><div class="line">    fmt.Println(&lt;-ch) <span class="comment">// 1</span></div><div class="line">    fmt.Println(&lt;-ch) <span class="comment">// 2</span></div><div class="line">    fmt.Println(&lt;-ch) <span class="comment">// 3</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Go语言允许我们使用range来读取信道:</p>
+<p>但是range可能会造成死锁，原因是range不等到信道关闭是不会结束读取的。<br>也就是如果缓冲信道干涸了，那么range就会阻塞当前goroutine, 所以死锁</p>
+<p>为了避免以上情况，有以下两种方式<br>1.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">3</span>)</div><div class="line">ch &lt;- <span class="number">1</span></div><div class="line">ch &lt;- <span class="number">2</span></div><div class="line">ch &lt;- <span class="number">3</span></div><div class="line"><span class="keyword">for</span> v := <span class="keyword">range</span> ch &#123;</div><div class="line">    fmt.Println(v)</div><div class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(ch) &lt;= <span class="number">0</span> &#123; <span class="comment">// 如果现有数据量为0，跳出循环</span></div><div class="line">        <span class="keyword">break</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">3</span>)</div><div class="line">ch &lt;- <span class="number">1</span></div><div class="line">ch &lt;- <span class="number">2</span></div><div class="line">ch &lt;- <span class="number">3</span></div><div class="line"></div><div class="line"><span class="comment">// 显式地关闭信道</span></div><div class="line"><span class="built_in">close</span>(ch)</div><div class="line"></div><div class="line"><span class="keyword">for</span> v := <span class="keyword">range</span> ch &#123;</div><div class="line">    fmt.Println(v)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="并行"><a href="#并行" class="headerlink" title="并行"></a>并行</h2><h3 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h3><p>两个队列，一个Coffee机器，那是并发<br>两个队列，两个Coffee机器，那是并行</p>
+<p>为了达到真正的并行，我们需要告诉Go我们允许同时最多使用多个核，例如下面的方法</p>
+<p>1.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"runtime"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">var</span> quit <span class="keyword">chan</span> <span class="keyword">int</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">100</span>; i++ &#123;</div><div class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</div><div class="line">    &#125;</div><div class="line">    quit &lt;- <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    runtime.GOMAXPROCS(<span class="number">2</span>) <span class="comment">// 最多使用2个核</span></div><div class="line"></div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">2</span>; i++ &#123;</div><div class="line">        &lt;- quit</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">        runtime.Gosched() <span class="comment">// 显式地让出CPU时间给其他goroutine</span></div><div class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</div><div class="line">    &#125;</div><div class="line">    quit &lt;- <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">2</span>; i++ &#123;</div><div class="line">        &lt;- quit</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的两个例子都用到了runtime调节器</p>
+<p>runtime调度器</p>
+<p>Gosched 让出cpu</p>
+<p>NumCPU 返回当前系统的CPU核数量</p>
+<p>GOMAXPROCS 设置最大的可同时使用的CPU核数</p>
+<p>Goexit 退出当前goroutine(但是defer语句会照常执行)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;golang-并行&quot;&gt;&lt;a href=&quot;#golang-并行&quot; class=&quot;headerlink&quot; title=&quot;golang  并行&quot;&gt;&lt;/a&gt;golang  并行&lt;/h2&gt;&lt;h3 id=&quot;goroutines、信道和死锁&quot;&gt;&lt;a href=&quot;#gorouti
+    
+    </summary>
+    
+      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Golang" scheme="https://joker208.github.io/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang学习笔记（二）</title>
+    <link href="https://joker208.github.io/2018/06/09/Golang%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://joker208.github.io/2018/06/09/Golang学习笔记（二）/</id>
+    <published>2018-06-08T16:00:00.000Z</published>
+    <updated>2020-05-18T08:10:24.997Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="golang-接口-反射-并发"><a href="#golang-接口-反射-并发" class="headerlink" title="golang 接口 反射 并发"></a>golang 接口 反射 并发</h2><h3 id="一、接口"><a href="#一、接口" class="headerlink" title="一、接口"></a>一、接口</h3><h4 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h4><p>Go不是传统意义上的面向对象编程语言，它没有类及其继承的概念。<br>接口是一种契约，实现类型必须满足它，它描述了类型的行为，规定类型可以做什么。<br>接口彻底将类型能做什么，以及如何做分离开来，使得相同接口的变量在不同的时刻表现出不同的行为，<br>这就是多态的本质</p>
+<p>接口的特性是golang支持鸭子类型的基础，<br>即“如果它走起来像鸭子，叫起来像鸭子（实现了接口要的方法），它就是一只鸭子（可以被赋值给接口的值）”。<br>凭借接口机制和鸭子类型，golang提供了一种游离于类、继承、模板之外的更加灵活强大的选择。</p>
+<p><strong>注意的点</strong></p>
+<ol>
+<li>类型不需要显式地声明它实现了某个接口，接口被隐式地实现，多个类型可以实现同一个接口</li>
+<li>一个类型可以实现多个接口</li>
+<li>实现了某个接口的类型，可以有其它的方法（多对多）</li>
+</ol>
+<h4 id="接口方法中类型T和-T的区别"><a href="#接口方法中类型T和-T的区别" class="headerlink" title="接口方法中类型T和*T的区别"></a>接口方法中类型T和*T的区别</h4><p>(指针)<br>指针是存储一个变量的内存地址的变量。 （不支持指针运算）</p>
+<p>取地址符是 &amp;，放到一个变量前使用就会返回相应变量的内存地址<br>解引用指针的意思是通过指针访问被指向的值。指针 a 的解引用表示为：*a。</p>
+<p>不要传递指向数组的指针给函数，而是使用切片<br>假设我们需要通过函数修改一个数组。一个办法是将数组的指针作为参数传递给函数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (  </div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">modify</span><span class="params">(arr *[3]<span class="keyword">int</span>)</span></span> &#123;  </div><div class="line">    (*arr)[<span class="number">0</span>] = <span class="number">90</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </div><div class="line">    a := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>&#125;</div><div class="line">    modify(&amp;a)</div><div class="line">    fmt.Println(a)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (  </div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">modify</span><span class="params">(arr *[3]<span class="keyword">int</span>)</span></span> &#123;  </div><div class="line">    arr[<span class="number">0</span>] = <span class="number">90</span>  <span class="comment">//a[x] 是 (*a)[x] 的简写，因此上面的程序中，(*arr)[0] 可以替换为 arr[0]。</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </div><div class="line">    a := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>&#125;</div><div class="line">    modify(&amp;a)</div><div class="line">    fmt.Println(a)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (  </div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">modify</span><span class="params">(sls []<span class="keyword">int</span>)</span></span> &#123;  </div><div class="line">    sls[<span class="number">0</span>] = <span class="number">90</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </div><div class="line">    a := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>&#125;</div><div class="line">    modify(a[:])  <span class="comment">//虽然可以通过传递数组指针给函数的方式来修改原始数组的值，但这在 Go 中不是惯用的方式，我们可以使用切片完成同样的事情。</span></div><div class="line">    fmt.Println(a)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Go 语言规范定义了接口方法集的调用规则：</p>
+<p>类型 <em>T 的可调用方法集包含接受者为 </em>T 或 T 的所有方法集<br>类型 T 的可调用方法集包含接受者为 T 的所有方法<br>类型 T 的可调用方法集不包含接受者为 *T 的方法</p>
+<h4 id="空接口"><a href="#空接口" class="headerlink" title="空接口"></a>空接口</h4><p>什么方法都没定义的接口就是空接口。根据Golang的概念，空接口被任何类型隐式实现，所以空接口可以容纳任何类型。</p>
+<h3 id="二、反射"><a href="#二、反射" class="headerlink" title="二、反射"></a>二、反射</h3><p>反射是在golang程序运行时检查变量所具有类型的一种机制</p>
+<p>在基本的层面上，反射只是一个检查存储在接口变量中的类型和值的算法。<br>使用反射机制，首先需要导入reflect包，reflect包中有两个重要类型需要了解，reflect.Type和reflect.Value，这两个类型使得可以访问变量的内容。<br>与此相关的，还有两个简单的函数，reflect.TypeOf和reflect.ValueOf，可以从接口值中分别获取reflect.Type和reflect.Value。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">   <span class="string">"fmt"</span></div><div class="line">   <span class="string">"reflect"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">   <span class="keyword">var</span> x <span class="keyword">float64</span> = <span class="number">1.1</span></div><div class="line">   fmt.Println(<span class="string">"reflect.Value:"</span>, reflect.ValueOf(x))</div><div class="line">   fmt.Println(<span class="string">"reflect.Type:"</span>, reflect.TypeOf(x))</div><div class="line">   v := reflect.ValueOf(x)</div><div class="line">   fmt.Println(<span class="string">"reflect.Type:"</span>,v.Type())</div><div class="line">   fmt.Println(<span class="string">"actual value:"</span>, v.Float())</div><div class="line">   fmt.Println(<span class="string">"kind is float64?"</span>, v.Kind() == reflect.Float64)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>golang采用静态类型机制，TypeOf返回静态类型</p>
+<h4 id="反射三法则"><a href="#反射三法则" class="headerlink" title="反射三法则"></a>反射三法则</h4><blockquote>
+<p> 官方文档 <a href="http://blog.golang.org/laws-of-reflection" target="_blank" rel="external">http://blog.golang.org/laws-of-reflection</a></p>
+</blockquote>
+<ol>
+<li><p><strong>法则一：从接口值到反射对象的反射</strong>（<em>Reflection goes from interface value toreflection object</em>）</p>
+<p>代表方法为reflect.ValueOf和reflect.TypeOf<br>func ValueOf(i interface{}) Value<br>func TypeOf(i interface{}) Type</p>
+</li>
+<li><p><strong>法则二：从反射对象到接口值的反射</strong>（<em>Reflection goes from reflection object to interface value</em>）</p>
+<p>从reflect.Value可以使用Interface方法还原接口值；<br>可以高效地打包类型和值信息到接口表达中，并返回这个结果</p>
+<p>方法声明：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v Value)</span> <span class="title">Interface</span><span class="params">()</span> <span class="title">interface</span></span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>通过反射对象 v 可以打印 float64 的表达值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">y :=v.Interface().(<span class="keyword">float64</span>) <span class="comment">// y 将为类型 float64。</span></div><div class="line">fmt.Println(y)</div></pre></td></tr></table></figure>
+<p>更为简洁的实现</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fmt.Println(v.Interface())</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p><strong>法则三：为了修改反射对象，其值必须可设置</strong>（<em>To modify a reflectionobject, the value must be settable</em>）</p>
+<p>反射对象可以通过SetFloat等方法设置值，通过CanSet判断可设置性。但是这里面有坑，有些值是不可设置的</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line"> <span class="string">"fmt"</span></div><div class="line"> <span class="string">"reflect"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> x <span class="keyword">float64</span> = <span class="number">1.1</span></div><div class="line">    v := reflect.ValueOf(x)</div><div class="line">    fmt.Println(<span class="string">"settability of v:"</span>,v.CanSet())</div><div class="line">    v.SetFloat(<span class="number">1.2</span>)<span class="comment">//错误</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>V := reflect.ValueOf(x)，这个函数是值传递，即传递了一个x的副本到函数中，而非x本身，值传递的参数是不能被真正修改的</p>
+<p>借助Elem方法，通过指针来修改指针指向的具体值。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v Value)</span><span class="title">Elem</span><span class="params">()</span> <span class="title">Value</span></span></div><div class="line">//<span class="title">Elem</span> <span class="title">returns</span> <span class="title">the</span> <span class="title">value</span> <span class="title">that</span> <span class="title">the</span> <span class="title">interface</span> <span class="title">v</span> <span class="title">contains</span> <span class="title">or</span> <span class="title">that</span> <span class="title">the</span> <span class="title">pointer</span> <span class="title">vpoints</span> <span class="title">to</span>. </div><div class="line">//<span class="title">It</span> <span class="title">panics</span> <span class="title">if</span> <span class="title">v</span>'<span class="title">s</span> <span class="title">Kind</span> <span class="title">is</span> <span class="title">not</span> <span class="title">Interface</span> <span class="title">or</span> <span class="title">Ptr</span>. <span class="title">It</span> <span class="title">returns</span> <span class="title">the</span> <span class="title">zeroValue</span> <span class="title">if</span> <span class="title">v</span> <span class="title">is</span> <span class="title">nil</span>.</div></pre></td></tr></table></figure>
+</li>
+</ol>
+   <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> x <span class="keyword">float64</span> = <span class="number">1.1</span></div><div class="line">    p := reflect.ValueOf(&amp;x)</div><div class="line">    fmt.Println(<span class="string">"type of p:"</span>,p.Type())</div><div class="line">    v := p.Elem()</div><div class="line">    fmt.Println(<span class="string">"type of v:"</span>,v.Type())</div><div class="line">    fmt.Println(<span class="string">"settability of v:"</span>,v.CanSet())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>   虽然p是不可修改的，但是v可以修改。这种方法思路上类似引用传参，传入地址，修改地址所指向的具体值</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;golang-接口-反射-并发&quot;&gt;&lt;a href=&quot;#golang-接口-反射-并发&quot; class=&quot;headerlink&quot; title=&quot;golang 接口 反射 并发&quot;&gt;&lt;/a&gt;golang 接口 反射 并发&lt;/h2&gt;&lt;h3 id=&quot;一、接口&quot;&gt;&lt;a href
+    
+    </summary>
+    
+      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Golang" scheme="https://joker208.github.io/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Golang学习笔记（一）</title>
+    <link href="https://joker208.github.io/2018/06/07/Golang%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://joker208.github.io/2018/06/07/Golang学习笔记（一）/</id>
+    <published>2018-06-06T16:00:00.000Z</published>
+    <updated>2020-05-18T08:31:16.490Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="研究方向"><a href="#研究方向" class="headerlink" title="研究方向"></a>研究方向</h3><p>golang<br>区块链<br>以太坊源码<br>以太坊智能合约<br>代币合约<br>共识机制</p>
+<a id="more"></a>
+<blockquote>
+<p><a href="https://github.com/ethereum/go-ethereum" target="_blank" rel="external">https://github.com/ethereum/go-ethereum</a>  以太坊</p>
+<p><a href="https://github.com/abiosoft/ishell" target="_blank" rel="external">https://github.com/abiosoft/ishell</a></p>
+<p><a href="https://github.com/urfave/cli" target="_blank" rel="external">https://github.com/urfave/cli</a></p>
+</blockquote>
+<h3 id="go-tool-pprof"><a href="#go-tool-pprof" class="headerlink" title="go tool pprof"></a>go tool pprof</h3><p>性能监控</p>
+<p>分为两方面</p>
+<h4 id="1-net-http-pprof-做WEB服务器的性能监控"><a href="#1-net-http-pprof-做WEB服务器的性能监控" class="headerlink" title="1.net/http/pprof 做WEB服务器的性能监控"></a>1.net/http/pprof 做WEB服务器的性能监控</h4><p>检查服务器状态<br>func main() {<br>    go func() {<br>        http.ListenAndServe(“localhost:6060”, nil)<br>    }()</p>
+<h4 id="2-runtime-pprof-做应用程序性能监控-CPU消耗分析"><a href="#2-runtime-pprof-做应用程序性能监控-CPU消耗分析" class="headerlink" title="2.runtime/pprof 做应用程序性能监控 CPU消耗分析"></a>2.runtime/pprof 做应用程序性能监控 CPU消耗分析</h4><p>func main() {<br>    f, err := os.OpenFile(“./tmp/cpu.prof”, os.O_RDWR|os.O_CREATE, 0644)<br>    if err != nil {<br>        log.Fatal(err)<br>    }<br>    defer f.Close()<br>    pprof.StartCPUProfile(f)<br>    defer pprof.StopCPUProfile()</p>
+<p>导出prof文件<br>使用 go tool pprof (应用程序) （应用程序的prof文件） 方式来对这个 prof 文件进行分析。</p>
+<p>$ go tool pprof HuaRongDao ./tmp/cpu.prof<br>Entering interactive mode (type “help” for commands)</p>
+<blockquote>
+<p>官方文档 <a href="https://blog.golang.org/profiling-go-programs" target="_blank" rel="external">https://blog.golang.org/profiling-go-programs</a></p>
+</blockquote>
+<p>net/http/pprof<br>和<br>runtime/pprof<br>指的并不是分析WEB服务器性能监控和应用程序性能监控</p>
+<p>这两个监控的是一个东西 内容都是一样的<br>只不过是net/http/pprof把监控的内容以WEB的形式展示出来<br>并不是说net/http/pprof是用来监控WEB服务器的性能的<br>跟WEB服务器没有关系</p>
+<p>net/http/pprof 只是把 runtime/pprof<br>进行封装了一下<br>实际上调用的还是 runtime/pprof</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;研究方向&quot;&gt;&lt;a href=&quot;#研究方向&quot; class=&quot;headerlink&quot; title=&quot;研究方向&quot;&gt;&lt;/a&gt;研究方向&lt;/h3&gt;&lt;p&gt;golang&lt;br&gt;区块链&lt;br&gt;以太坊源码&lt;br&gt;以太坊智能合约&lt;br&gt;代币合约&lt;br&gt;共识机制&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Golang" scheme="https://joker208.github.io/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#导出Excel的方法总结</title>
+    <link href="https://joker208.github.io/2017/04/12/C#%E5%AF%BC%E5%87%BAExcel%E7%9A%84%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>https://joker208.github.io/2017/04/12/C#导出Excel的方法总结/</id>
+    <published>2017-04-11T16:00:00.000Z</published>
+    <updated>2020-05-16T18:10:01.624Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近做了一个有关后台数据的导出功能</p>
+<p>趁着这个机会把收集到的有关导出Excel的各种方法总结一下</p>
+<a id="more"></a>
+<h3 id="Npoi导出Excel"><a href="#Npoi导出Excel" class="headerlink" title="Npoi导出Excel"></a>Npoi导出Excel</h3><h5 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h5><p>NPOI 是 POI 项目的 .NET 版本<br>POI是一个开源的Java读写Excel、WORD等微软OLE2组件文档的项目</p>
+<h5 id="主要优点："><a href="#主要优点：" class="headerlink" title="主要优点："></a>主要优点：</h5><p>可以实现Excel的导入导出，而且不需要本机上装Office</p>
+<p>需要的引用可以在VS的NuGet上直接下载，现在用的版本是2.3.0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using System.Collections.Generic;</div><div class="line">using System.Data;</div><div class="line">using System.IO;</div><div class="line">using System.Text;</div><div class="line">using System.Web;</div><div class="line">using NPOI.SS.UserModel;</div><div class="line">using NPOI.HSSF.UserModel;</div><div class="line">/*</div><div class="line"></div><div class="line"> * / &lt;summary&gt;</div><div class="line"> * / NpoiforExcel 的摘要说明</div><div class="line"> * / &lt;/summary&gt;</div><div class="line">   */</div><div class="line">   public class NpoiforExcel</div><div class="line">   &#123;</div><div class="line">     public NpoiforExcel( DataTable dt, string fileName )</div><div class="line">     &#123;</div><div class="line">   /* 生成Excel */</div><div class="line">   IWorkbook book = BuildWorkbook( dt );</div><div class="line">   /* web 下载 */</div><div class="line">   if ( fileName == &quot;&quot; )</div><div class="line">     fileName = string.Format( &quot;&#123;0:yyyyMMddHHmmssffff&#125;&quot;, DateTime.Now );</div><div class="line">   fileName = fileName.Trim();</div><div class="line">   string ext = Path.GetExtension( fileName );</div><div class="line">   if ( ext.ToLower() == &quot;.xls&quot; || ext.ToLower() == &quot;.xlsx&quot; )</div><div class="line">     fileName = fileName.Replace( ext, string.Empty );</div><div class="line">   HttpResponse httpResponse = HttpContext.Current.Response;</div><div class="line">   httpResponse.Clear();</div><div class="line">   httpResponse.Buffer = true;</div><div class="line">   httpResponse.Charset  = Encoding.UTF8.BodyName;</div><div class="line">   httpResponse.AppendHeader( &quot;Content-Disposition&quot;, &quot;attachment;filename=&quot; + fileName + &quot;.xls&quot; );</div><div class="line">   httpResponse.ContentEncoding  = Encoding.UTF8;</div><div class="line">   httpResponse.ContentType  = &quot;application/vnd.ms-excel; charset=UTF-8&quot;;</div><div class="line">   book.Write( httpResponse.OutputStream );</div><div class="line">   httpResponse.End();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">  public static HSSFWorkbook BuildWorkbook( DataTable dt )</div><div class="line">  &#123;</div><div class="line">    HSSFWorkbook  book  = new HSSFWorkbook();</div><div class="line">    ISheet    sheet = book.CreateSheet( &quot;Sheet1&quot; );</div><div class="line">    /* Data Rows */</div><div class="line">    for ( int i = 0; i &lt; dt.Rows.Count; i++ )</div><div class="line">    &#123;</div><div class="line">      IRow drow = sheet.CreateRow( i );</div><div class="line">      for ( int j = 0; j &lt; dt.Columns.Count; j++ )</div><div class="line">      &#123;</div><div class="line">        ICell cell = drow.CreateCell( j, CellType.String );</div><div class="line">        cell.SetCellValue( dt.Rows[i][j].ToString() );</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    /* 自动列宽 */</div><div class="line">    for ( int i = 0; i &lt;= dt.Columns.Count; i++ )</div><div class="line">      sheet.AutoSizeColumn( i, true );</div><div class="line">    return(book);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Html导出Excel"><a href="#Html导出Excel" class="headerlink" title="Html导出Excel"></a>Html导出Excel</h3><p>首先感谢果哥，这个方法从果哥偷学来的︿(￣︶￣)︿</p>
+<p>主要思路是将DataTable数据转换为html格式，然后直接设置为Excel的文件格式下载</p>
+<p>下载下来的文件打开会有安全提示，可以忽略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using System.Collections.Generic;</div><div class="line">using System.Web;</div><div class="line">/*</div><div class="line"> * / &lt;summary&gt;</div><div class="line"> * / htmltoExcel 的摘要说明</div><div class="line"> * / &lt;/summary&gt;</div><div class="line"> */</div><div class="line">public class htmltoExcel</div><div class="line">&#123;</div><div class="line">  public htmltoExcel()</div><div class="line">  &#123;</div><div class="line">    /*</div><div class="line">     *</div><div class="line">     * TODO: 在此处添加构造函数逻辑</div><div class="line">     *</div><div class="line">     */</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  /*</div><div class="line">   * / &lt;summary&gt;</div><div class="line">   * / DataTable 输出成Excel</div><div class="line">   * / &lt;/summary&gt;</div><div class="line">   * / &lt;param name=&quot;dtData&quot;&gt;&lt;/param&gt;</div><div class="line">   * / &lt;param name=&quot;FileName&quot;&gt;&lt;/param&gt;</div><div class="line">   */</div><div class="line">  public htmltoExcel( System.Data.DataTable dtData, String FileName )</div><div class="line">  &#123;</div><div class="line">    System.Web.UI.WebControls.GridView dgExport = null;</div><div class="line">    /* 当前对话 */</div><div class="line">    System.Web.HttpContext curContext = System.Web.HttpContext.Current;</div><div class="line">    /* IO导出并返回excel文件 */</div><div class="line">    System.IO.StringWriter    strWriter = null;</div><div class="line">    System.Web.UI.HtmlTextWriter  htmlWriter  = null;</div><div class="line">    if ( dtData != null )</div><div class="line">    &#123;</div><div class="line">      /* 设置编码和附件格式 */</div><div class="line">      System.Web.HttpUtility.UrlEncode( FileName, System.Text.Encoding.UTF8 );</div><div class="line">      curContext.Response.AddHeader( &quot;content-disposition&quot;, &quot;attachment;filename=&quot; + System.Web.HttpUtility.UrlEncode( FileName, System.Text.Encoding.UTF8 ) + &quot;.xls&quot; );</div><div class="line">      curContext.Response.ContentType   = &quot;application nd.ms-excel&quot;;</div><div class="line">      curContext.Response.ContentEncoding = System.Text.Encoding.GetEncoding( &quot;UTF-8&quot; );</div><div class="line">      curContext.Response.Charset   = &quot;UTF-8&quot;;</div><div class="line">      /* 导出Excel文件 */</div><div class="line">      strWriter = new System.IO.StringWriter();</div><div class="line">      htmlWriter  = new System.Web.UI.HtmlTextWriter( strWriter );</div><div class="line">      /* 要重新定义一个无分页的GridView */</div><div class="line">      dgExport    = new System.Web.UI.WebControls.GridView();</div><div class="line">      dgExport.DataSource = dtData.DefaultView;</div><div class="line">      dgExport.AllowPaging  = false;</div><div class="line">      dgExport.DataBind();</div><div class="line">      /*下载到客户端 */</div><div class="line">      dgExport.RenderControl( htmlWriter );</div><div class="line">      curContext.Response.Write( &quot;&lt;html&gt;&lt;head&gt;&lt;meta http-equiv=Content-Type content=\&quot;text/html; charset=utf-8\&quot;&gt;&quot; );</div><div class="line">      curContext.Response.Write( strWriter.ToString() );</div><div class="line">      curContext.Response.Write( &quot;&lt;/body&gt;&lt;/html&gt;&quot; );</div><div class="line">      curContext.Response.End();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Xml导出Excel"><a href="#Xml导出Excel" class="headerlink" title="Xml导出Excel"></a>Xml导出Excel</h3><p>这个方法从大表哥那儿搞来的，表示感谢︿(￣︶￣)︿</p>
+<p>这个导出思路和上面的方法类似，先拼出XML格式，再设置为Excel格式导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using System.Collections.Generic;</div><div class="line">using System.Data;</div><div class="line">using System.Text;</div><div class="line">using System.Web;</div><div class="line">public class ExportOrder</div><div class="line">&#123;</div><div class="line">	private DataTable datasource;</div><div class="line">	public ExportOrder( DataTable data, string title )</div><div class="line">	&#123;</div><div class="line">		System.Web.HttpContext curContext = System.Web.HttpContext.Current;</div><div class="line">		if ( data != null )</div><div class="line">		&#123;</div><div class="line">			datasource = data;</div><div class="line">			/* 设置编码和附件格式 */</div><div class="line">			System.Web.HttpUtility.UrlEncode( title, System.Text.Encoding.UTF8 );</div><div class="line">			curContext.Response.AddHeader( &quot;content-disposition&quot;, &quot;attachment;filename=&quot; + System.Web.HttpUtility.UrlEncode( title, System.Text.Encoding.UTF8 ) + &quot;.xls&quot; );</div><div class="line">			curContext.Response.ContentType		= &quot;application nd.ms-excel&quot;;</div><div class="line">			curContext.Response.ContentEncoding	= System.Text.Encoding.GetEncoding( &quot;UTF-8&quot; );</div><div class="line">			curContext.Response.Charset		= &quot;UTF-8&quot;;</div><div class="line">			/*下载到客户端 */</div><div class="line">			curContext.Response.Write( GetExcelString().ToString() );</div><div class="line">			curContext.Response.End();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	private StringBuilder GetExcelString()</div><div class="line">	&#123;</div><div class="line">		StringBuilder xmlString = new StringBuilder();</div><div class="line">		AddHeadFile( xmlString );</div><div class="line">		AddContentFile( xmlString, datasource );</div><div class="line">		AddEndFile( xmlString );</div><div class="line">		return(xmlString);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	/*</div><div class="line">	 * / &lt;summary&gt;</div><div class="line">	 * /写Excel头</div><div class="line">	 * / &lt;/summary&gt;</div><div class="line">	 * / &lt;param name=&quot;OutFileContent&quot;&gt;&lt;/param&gt;</div><div class="line">	 * / &lt;returns&gt;&lt;/returns&gt;</div><div class="line">	 */</div><div class="line">	private StringBuilder AddHeadFile( StringBuilder OutFileContent )</div><div class="line">	&#123;</div><div class="line">		OutFileContent.Append( &quot;&lt;?xml version=\&quot;1.0\&quot;?&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;?mso-application progid=\&quot;Excel.Sheet\&quot;?&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Workbook xmlns=\&quot;urn:schemas-microsoft-com:office:spreadsheet\&quot;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; xmlns:o=\&quot;urn:schemas-microsoft-com:office:office\&quot;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; xmlns:x=\&quot;urn:schemas-microsoft-com:office:excel\&quot;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; xmlns:ss=\&quot;urn:schemas-microsoft-com:office:spreadsheet\&quot;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; xmlns:html=\&quot;http://www.w3.org/TR/REC-html40\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;DocumentProperties xmlns=\&quot;urn:schemas-microsoft-com:office:office\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Author&gt;panss&lt;/Author&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;LastAuthor&gt;Оґ¶ЁТе&lt;/LastAuthor&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Created&gt;2004-12-31T03:40:31Z&lt;/Created&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Company&gt;Prcedu&lt;/Company&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Version&gt;12.00&lt;/Version&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;/DocumentProperties&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;OfficeDocumentSettings xmlns=\&quot;urn:schemas-microsoft-com:office:office\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;DownloadComponents/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;LocationOfComponents HRef=\&quot;file:///F:\\Tools\\OfficeXP\\OfficeXP\\\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;/OfficeDocumentSettings&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;ExcelWorkbook xmlns=\&quot;urn:schemas-microsoft-com:office:excel\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;WindowHeight&gt;9000&lt;/WindowHeight&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;WindowWidth&gt;10620&lt;/WindowWidth&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;WindowTopX&gt;480&lt;/WindowTopX&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;WindowTopY&gt;45&lt;/WindowTopY&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;ProtectStructure&gt;False&lt;/ProtectStructure&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;ProtectWindows&gt;False&lt;/ProtectWindows&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;/ExcelWorkbook&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;Styles&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Style ss:ID=\&quot;Default\&quot; ss:Name=\&quot;Normal\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Alignment ss:Vertical=\&quot;Center\&quot; /&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Borders/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Font ss:FontName=\&quot;ЛОМе\&quot; x:CharSet=\&quot;134\&quot; ss:Size=\&quot;12\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Interior/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;NumberFormat/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Protection/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;/Style&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Style ss:ID=\&quot;s62\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Alignment ss:Vertical=\&quot;Center\&quot; ss:Horizontal=\&quot;Center\&quot; ss:WrapText=\&quot;1\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Font ss:FontName=\&quot;ЛОМе\&quot; x:CharSet=\&quot;134\&quot; ss:Size=\&quot;9\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;/Style&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Style ss:ID=\&quot;s74\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Alignment ss:Horizontal=\&quot;Center\&quot; ss:Vertical=\&quot;Center\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Borders&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Border ss:Position=\&quot;Bottom\&quot; ss:LineStyle=\&quot;Continuous\&quot; ss:Weight=\&quot;1\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Border ss:Position=\&quot;Left\&quot; ss:LineStyle=\&quot;Continuous\&quot; ss:Weight=\&quot;1\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Border ss:Position=\&quot;Right\&quot; ss:LineStyle=\&quot;Continuous\&quot; ss:Weight=\&quot;1\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Border ss:Position=\&quot;Top\&quot; ss:LineStyle=\&quot;Continuous\&quot; ss:Weight=\&quot;1\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;/Borders&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Font ss:FontName=\&quot;ЛОМе\&quot; x:CharSet=\&quot;134\&quot; ss:Size=\&quot;12\&quot; ss:Bold=\&quot;1\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;   &lt;Interior ss:Color=\&quot;#BFBFBF\&quot; ss:Pattern=\&quot;Solid\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;/Style&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;/Styles&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot; &lt;Worksheet ss:Name=\&quot;Sheet1\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;  &lt;Table ss:ExpandedColumnCount=\&quot;255\&quot; x:FullColumns=\&quot;1\&quot; \r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;x:FullRows=\&quot;1\&quot; ss:StyleID=\&quot;s62\&quot; ss:DefaultColumnWidth=\&quot;75\&quot; ss:DefaultRowHeight=\&quot;20.25\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Column ss:StyleID=\&quot;s62\&quot; ss:AutoFitWidth=\&quot;0\&quot; ss:Width=\&quot;112.5\&quot;/&gt;\r\n&quot; );</div><div class="line">		return(OutFileContent);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	/*</div><div class="line">	 * / &lt;summary&gt;</div><div class="line">	 * / &lt;summary&gt;</div><div class="line">	 * / 写表格尾部</div><div class="line">	 * / &lt;/summary&gt;</div><div class="line">	 * / &lt;param name=&quot;OutFileContent&quot;&gt;&lt;/param&gt;</div><div class="line">	 * / &lt;returns&gt;&lt;/returns&gt;</div><div class="line">	 */</div><div class="line">	private StringBuilder AddEndFile( StringBuilder OutFileContent )</div><div class="line">	&#123;</div><div class="line">		OutFileContent.Append( &quot;&lt;/Table&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;WorksheetOptions xmlns=\&quot;urn:schemas-microsoft-com:office:excel\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Unsynced/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Print&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;    &lt;ValidPrinterInfo/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;    &lt;PaperSizeIndex&gt;9&lt;/PaperSizeIndex&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;    &lt;HorizontalResolution&gt;600&lt;/HorizontalResolution&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;    &lt;VerticalResolution&gt;0&lt;/VerticalResolution&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/Print&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Selected/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Panes&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;    &lt;Pane&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;    &lt;Number&gt;3&lt;/Number&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;    &lt;RangeSelection&gt;R1:R65536&lt;/RangeSelection&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;    &lt;/Pane&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/Panes&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;ProtectObjects&gt;False&lt;/ProtectObjects&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;ProtectScenarios&gt;False&lt;/ProtectScenarios&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/WorksheetOptions&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/Worksheet&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Worksheet ss:Name=\&quot;Sheet2\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Table ss:ExpandedColumnCount=\&quot;1\&quot; ss:ExpandedRowCount=\&quot;1\&quot; x:FullColumns=\&quot;1\&quot;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;x:FullRows=\&quot;1\&quot; ss:DefaultColumnWidth=\&quot;54\&quot; ss:DefaultRowHeight=\&quot;14.25\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Row ss:AutoFitHeight=\&quot;0\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/Table&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;WorksheetOptions xmlns=\&quot;urn:schemas-microsoft-com:office:excel\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Unsynced/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;ProtectObjects&gt;False&lt;/ProtectObjects&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;ProtectScenarios&gt;False&lt;/ProtectScenarios&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/WorksheetOptions&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/Worksheet&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Worksheet ss:Name=\&quot;Sheet3\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Table ss:ExpandedColumnCount=\&quot;1\&quot; ss:ExpandedRowCount=\&quot;1\&quot; x:FullColumns=\&quot;1\&quot;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;x:FullRows=\&quot;1\&quot; ss:DefaultColumnWidth=\&quot;54\&quot; ss:DefaultRowHeight=\&quot;14.25\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Row ss:AutoFitHeight=\&quot;0\&quot;/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/Table&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;WorksheetOptions xmlns=\&quot;urn:schemas-microsoft-com:office:excel\&quot;&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;Unsynced/&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;ProtectObjects&gt;False&lt;/ProtectObjects&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;ProtectScenarios&gt;False&lt;/ProtectScenarios&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/WorksheetOptions&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/Worksheet&gt;\r\n&quot; );</div><div class="line">		OutFileContent.Append( &quot;&lt;/Workbook&gt;\r\n&quot; );</div><div class="line">		return(OutFileContent);</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	private StringBuilder AddContentFile( StringBuilder OutFileContent, DataTable ds )</div><div class="line">	&#123;</div><div class="line">		/* 写列头 */</div><div class="line">		OutFileContent.Append( &quot;&lt;Row ss:AutoFitHeight=\&quot;0\&quot;&gt;&quot; );</div><div class="line">		for ( int i = 0; i &lt; ds.Columns.Count; i++ )</div><div class="line">		&#123;</div><div class="line">			OutFileContent.Append( &quot;&lt;Cell&gt;&lt;Data ss:Type=\&quot;String\&quot;&gt;&quot; + ds.Columns[i].ColumnName + &quot;&lt;/Data&gt;&lt;/Cell&gt;&quot; );</div><div class="line">		&#125;</div><div class="line">		OutFileContent.Append( &quot;&lt;/Row&gt;&quot; );</div><div class="line">		/* 写内容 */</div><div class="line">		foreach ( DataRow row in ds.Rows )</div><div class="line">		&#123;</div><div class="line">			OutFileContent.Append( &quot;&lt;Row ss:AutoFitHeight=\&quot;0\&quot;&gt;&quot; );</div><div class="line">			for ( int i = 0; i &lt; ds.Columns.Count; i++ )</div><div class="line">			&#123;</div><div class="line">				OutFileContent.Append( &quot;&lt;Cell&gt;&lt;Data ss:Type=\&quot;String\&quot;&gt;&quot; + row[i].ToString() + &quot;&lt;/Data&gt;&lt;/Cell&gt;&quot; );</div><div class="line">			&#125;</div><div class="line">			OutFileContent.Append( &quot;&lt;/Row&gt;&quot; );</div><div class="line">		&#125;</div><div class="line">		return(OutFileContent);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>另外还知道的两个方法openxml和EPPLUS</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近做了一个有关后台数据的导出功能&lt;/p&gt;
+&lt;p&gt;趁着这个机会把收集到的有关导出Excel的各种方法总结一下&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="设计模式" scheme="https://joker208.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式初探之单例模式</title>
+    <link href="https://joker208.github.io/2017/03/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://joker208.github.io/2017/03/16/设计模式初探之单例模式/</id>
+    <published>2017-03-16T06:02:01.000Z</published>
+    <updated>2020-05-16T18:09:31.315Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><ul>
+<li>定义</li>
+</ul>
+<p>保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
+<ul>
+<li>目的</li>
+</ul>
+<p>单例模式的目的就是要控制特定的类只产生一个对象，当然也允许在一定情况下灵活的改变对象的个数</p>
+<ul>
+<li>特点</li>
+</ul>
+<p>单例类只能有一个实例</p>
+<p>单例类必须自己创建自己的唯一实例</p>
+<p>单例类必须给所有其它对象提供这一实例</p>
+<a id="more"></a>
+<ul>
+<li>应用</li>
+</ul>
+<p>每台计算机可以有若干个打印机，但只能有一个Printer Spooler，避免两个打印作业同时输出到打印机</p>
+<p>一个具有自动编号主键的表可以有多个用户同时使用，但数据库中只能有一个地方分配下一个主键编号，否则会出现主键重复</p>
+<p>下面的是C#中单例模式的三种写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">public class Singleton1</div><div class="line">&#123;</div><div class="line">  private static Singleton1 _instance = null;</div><div class="line">  private Singleton1()</div><div class="line">  &#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line">  public static Singleton1 CreateInstance()</div><div class="line">  &#123;</div><div class="line">    if ( _instance == null )</div><div class="line">    &#123;</div><div class="line">      _instance = new Singleton1();</div><div class="line">    &#125;</div><div class="line">    return(_instance);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">public class Singleton2</div><div class="line">&#123;</div><div class="line">  private volatile static Singleton2  _instance = null;</div><div class="line">  private static readonly object    lockHelper  = new object();</div><div class="line">  private Singleton2()</div><div class="line">  &#123;</div><div class="line">  &#125;</div><div class="line">  public static Singleton2 CreateInstance()</div><div class="line">  &#123;</div><div class="line">    if ( _instance == null )</div><div class="line">    &#123;</div><div class="line">      lock ( lockHelper )</div><div class="line">      &#123;</div><div class="line">        if ( _instance == null )</div><div class="line">          _instance = new Singleton2();</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    return(_instance);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">sealed class Singleton3</div><div class="line">&#123;</div><div class="line">  private Singleton3()</div><div class="line">  &#123;</div><div class="line">  &#125;</div><div class="line">  public static readonly Singleton3 instance = new Singleton3();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中第三种实现方法为C#中独有的</p>
+<p>使得代码减少了许多，同时也解决了线程问题带来的性能上损失</p>
+<p>它的工作原理又是什么呢？</p>
+<p>Singleton类被声明为sealed，以此保证它自己不会被继承<br>其次没有了Instance的方法，将原来_instance成员变量变成public readonly，并在声明时被初始化<br>通过这些改变，我们确实得到了Singleton的模式，原因是在JIT的处理过程中<br>如果类中的static属性被任何方法使用时，.NET Framework将对这个属性进行初始化<br>于是在初始化Instance属性的同时Singleton类实例得以创建和装载<br>而私有的构造函数和readonly(只读)保证了Singleton不会被再次实例化<br>这正是Singleton设计模式的意图</p>
+<p>不过这也带来了一些问题，比如无法继承，实例在程序一运行就被初始化，无法实现延迟初始化等</p>
+<p>单利模式就先介绍到这里，以后还会继续补充，希望大家多提意见ヽ(￣ω￣(￣ω￣〃)ゝ</p>
+<blockquote>
+<p>文章参考</p>
+<p>《深入浅出设计模式》</p>
+<p><a href="http://www.cnblogs.com/huqingyu/archive/2004/07/09/22721.aspx" target="_blank" rel="external">从c#的singleton设计模式</a></p>
+<p><a href="http://www.cnblogs.com/promise-7/archive/2012/05/10/2494275.html" target="_blank" rel="external">c#设计模式-单例模式</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;保证一个类仅有一个实例，并提供一个访问它的全局访问点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;目的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;单例模式的目的就是要控制特定的类只产生一个对象，当然也允许在一定情况下灵活的改变对象的个数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;特点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;单例类只能有一个实例&lt;/p&gt;
+&lt;p&gt;单例类必须自己创建自己的唯一实例&lt;/p&gt;
+&lt;p&gt;单例类必须给所有其它对象提供这一实例&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="设计模式" scheme="https://joker208.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>.NET验证码</title>
     <link href="https://joker208.github.io/2017/03/01/net%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
     <id>https://joker208.github.io/2017/03/01/net验证码/</id>
     <published>2017-03-01T07:56:27.000Z</published>
-    <updated>2017-03-01T09:44:41.170Z</updated>
+    <updated>2017-03-01T09:44:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>网上的验证码总是不太好用</p>
 <p>最近公司做的一个网站被用作短信轰炸</p>
@@ -56,7 +468,7 @@
     <link href="https://joker208.github.io/2017/02/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E6%8E%A2/"/>
     <id>https://joker208.github.io/2017/02/21/设计模式初探/</id>
     <published>2017-02-21T10:03:54.000Z</published>
-    <updated>2017-03-01T08:14:40.127Z</updated>
+    <updated>2017-03-01T08:14:42.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>刚到公司时</p>
 <p>我就向我们的主管果哥问过一个问题</p>
@@ -94,11 +506,117 @@
   </entry>
   
   <entry>
+    <title>设计模式初探之工厂模式</title>
+    <link href="https://joker208.github.io/2017/02/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9D%E6%8E%A2%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://joker208.github.io/2017/02/21/设计模式初探之工厂模式/</id>
+    <published>2017-02-21T10:03:54.000Z</published>
+    <updated>2020-05-16T18:09:39.400Z</updated>
+    
+    <content type="html"><![CDATA[<p>设计模式是很抽象的东西</p>
+<p>是各位编程届前辈不断实践总结，不断探索出来的</p>
+<p>是规则</p>
+<p>是经验</p>
+<p>太抽象的东西往往不容易理解</p>
+<p>那么就用简单的事例来把抽象的东西具体化</p>
+<p>故事要从很久很久以前说起 (￣o￣) . z Z</p>
+<a id="more"></a>
+<p>话说有一个暴发户<br>他家有三辆汽车——Benz 奔驰、 Bmw 宝马、 Audi 奥迪<br>还雇了司机为他开车<br>不过，暴发户坐车时总是怪怪的<br>上 Benz 车后跟司机说“开奔驰车！”<br>坐上 Bmw 后他说“开宝马车！ ”<br>坐上 Audi 说“开奥迪车！ ”<br>你一定说：这人有病！直接说开车不就行了？！<br>而当把这个暴发户的行为放到我们程序设计中来时<br>会发现这是一个普遍存在的现象</p>
+<p>用代码表现出来就是这样色儿地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">/* 抽象产品角色 */</div><div class="line">public interface Car &#123;</div><div class="line">  void drive();</div><div class="line">&#125;</div><div class="line">/* 具体产品角色 */</div><div class="line">public class Benz : Car &#123;</div><div class="line">  public void drive()</div><div class="line">  &#123;</div><div class="line">    Console.WriteLine( &quot;Driving Benz&quot; );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">public class Bmw : Car &#123;</div><div class="line">  public void drive()</div><div class="line">  &#123;</div><div class="line">    Console.WriteLine( &quot;Driving Bmw&quot; );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">public class Audi : Car &#123;</div><div class="line">  public void drive()</div><div class="line">  &#123;</div><div class="line">    Console.WriteLine( &quot;Driving Audi&quot; );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">/* 工厂类角色 */</div><div class="line">public class Driver &#123;</div><div class="line">  public static Car driverCar( String s )</div><div class="line">  &#123;</div><div class="line">    if ( s == &quot;Benz&quot; )</div><div class="line">      return(new Benz() );</div><div class="line">    else if ( s == &quot;Bmw&quot; )</div><div class="line">      return(new Bmw() );</div><div class="line">    else if ( s == &quot;Audi&quot; )</div><div class="line">      return(new Audi() );</div><div class="line">    else</div><div class="line">      throw new Exception();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">class Program</div><div class="line">&#123;</div><div class="line">  static void Main( string[] args )</div><div class="line">  &#123;</div><div class="line">    try</div><div class="line">    &#123;</div><div class="line">      /* 告诉司机今天坐奔驰 */</div><div class="line">      Car car = Driver.driverCar( &quot;Benz&quot; );</div><div class="line">      /*下命令：开车 */</div><div class="line">      car.drive();</div><div class="line">    &#125;</div><div class="line">    catch ( Exception e )</div><div class="line">    &#123;</div><div class="line">      Console.WriteLine( e );</div><div class="line">    &#125;</div><div class="line">    finally</div><div class="line">    &#123;</div><div class="line">      Console.ReadKey();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>工厂模式主要是为创建对象提供过渡接口</p>
+<p>以便将创建对象的具体过程屏蔽隔离起来</p>
+<p>达到提高灵活性的目的</p>
+<h4 id="工厂模式可分为三种分别是"><a href="#工厂模式可分为三种分别是" class="headerlink" title="工厂模式可分为三种分别是"></a>工厂模式可分为三种分别是</h4><ol>
+<li>简单工厂模式</li>
+<li>工厂方法模式</li>
+<li>抽象工厂模式</li>
+</ol>
+<h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><ul>
+<li>定义</li>
+</ul>
+<p>简单工厂模式又称静态工厂方法模式</p>
+<p>定义一个用于创建对象的接口</p>
+<ul>
+<li>组成</li>
+</ul>
+<p>工厂类角色：这是本模式的核心，含有一定的商业逻辑和判断逻辑</p>
+<p>抽象产品角色：它一般是具体产品继承的父类或者实现的接口</p>
+<p>具体产品角色：工厂类所创建的对象就是此角色的实例</p>
+<ul>
+<li>缺陷分析</li>
+</ul>
+<p>对产品部分来说，它是符合开闭原则的</p>
+<p>但是工厂部分好像不太理想，因为每增加一辆车，都要在工厂类中增加相应的业务逻辑或者判断逻辑，这显然是违背开闭原则的</p>
+<p>可想而知对于新产品的加入，工厂类是很被动的</p>
+<h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><p>我们来继续讲故事</p>
+<p>暴发户生意越做越大，自己的爱车也越来越多。这可苦了那位司机师傅了，什么车它都要记得，维护，都要经过他来使用</p>
+<p>于是暴发户同情他说：看你跟我这么多年的份上，以后你不用这么辛苦了，我给你分配几个人手，你只管管好他们就行了！</p>
+<p>于是，工厂方法模式的管理出现了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">/* 抽象产品角色 */</div><div class="line">public interface Car</div><div class="line">&#123;</div><div class="line">  void drive();</div><div class="line">&#125;</div><div class="line">/* 具体产品角色 */</div><div class="line">public class Benz : Car</div><div class="line">&#123;</div><div class="line">  public void drive()</div><div class="line">  &#123;</div><div class="line">    Console.WriteLine( &quot;Driving Benz&quot; );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">public class Bmw : Car</div><div class="line">&#123;</div><div class="line">  public void drive()</div><div class="line">  &#123;</div><div class="line">    Console.WriteLine( &quot;Driving Bmw&quot; );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">public class Audi : Car</div><div class="line">&#123;</div><div class="line">  public void drive()</div><div class="line">  &#123;</div><div class="line">    Console.WriteLine( &quot;Driving Audi&quot; );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">/* 抽象工厂角色 */</div><div class="line">public interface Driver &#123;</div><div class="line">  Car driverCar();</div><div class="line">&#125;</div><div class="line">public class BenzDriver : Driver &#123;</div><div class="line">  public Car driverCar()</div><div class="line">  &#123;</div><div class="line">    return(new Benz() );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">public class BmwDriver : Driver &#123;</div><div class="line">  public Car driverCar()</div><div class="line">  &#123;</div><div class="line">    return(new Bmw() );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">public class AudiDriver : Driver &#123;</div><div class="line">  public Car driverCar()</div><div class="line">  &#123;</div><div class="line">    return(new Audi() );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">class Program</div><div class="line">&#123;</div><div class="line">  static void Main( string[] args )</div><div class="line">  &#123;</div><div class="line">    try</div><div class="line">    &#123;</div><div class="line">      Driver driver = new BenzDriver();</div><div class="line">      /* 告诉司机坐奔驰 */</div><div class="line">      Car car = driver.driverCar();</div><div class="line">      /*下命令 开车 */</div><div class="line">      car.drive();</div><div class="line">    &#125;</div><div class="line">    catch ( Exception e )</div><div class="line">    &#123;</div><div class="line">      Console.WriteLine( e );</div><div class="line">    &#125;</div><div class="line">    finally</div><div class="line">    &#123;</div><div class="line">      Console.ReadKey();</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>目的</li>
+</ul>
+<p>工厂方法模式去掉了简单工厂模式中工厂方法的静态属性，使得它可以被子类继承</p>
+<p>这样在简单工厂模式里集中在工厂方法上的压力可以由工厂方法模式里不同的工厂子类来分担</p>
+<ul>
+<li>组成</li>
+</ul>
+<p>抽象工厂角色： 这是工厂方法模式的核心，它与应用程序无关</p>
+<p>具体工厂角色：它含有和具体业务逻辑有关的代码，由应用程序调用以创建对应的具体产品的对象</p>
+<p>抽象产品角色：它是具体产品继承的父类或者是实现的接口</p>
+<p>具体产品角色：具体工厂角色所创建的对象就是此角色的实例</p>
+<ul>
+<li>适用范围</li>
+</ul>
+<p>当客户程序不需要知道要使用对象的创建过程</p>
+<p>客户程序使用的对象存在变动的可能，或者根本就不知道使用哪一个具体的对象</p>
+<h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><ul>
+<li>目的</li>
+</ul>
+<p>给客户端提供一个接口，可以创建多个产品族中的产品对象，而且使用抽象工厂模式还要满足一下条件：</p>
+<p>1) 系统中有多个产品族，而系统一次只可能消费其中一族产品</p>
+<p>2) 同属于同一个产品族的产品以其使用</p>
+<ul>
+<li>组成</li>
+</ul>
+<p>抽象工厂角色： 这是工厂方法模式的核心，它与应用程序无关</p>
+<p>具体工厂角色：它含有和具体业务逻辑有关的代码，由应用程序调用以创建对应的具体产品的对象</p>
+<p>抽象产品角色：它是具体产品继承的父类或者是实现的接口</p>
+<p>具体产品角色：具体工厂角色所创建的对象就是此角色的实例</p>
+<h3 id="工厂模式区别"><a href="#工厂模式区别" class="headerlink" title="工厂模式区别"></a>工厂模式区别</h3><p>简单工厂模式： 用来生产同一等级结构中的任意产品（对于增加新的产品，无能为力）</p>
+<p>工厂方法模式：用来生产同一等级结构中的固定产品（支持增加任意产品）</p>
+<p>抽象工厂模式 ：用来生产不同产品族的全部产品（对于增加新的产品，无能为力；支持增加产品族）</p>
+<blockquote>
+<p>参考文章</p>
+<p>《深入浅出设计模式》</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;设计模式是很抽象的东西&lt;/p&gt;
+&lt;p&gt;是各位编程届前辈不断实践总结，不断探索出来的&lt;/p&gt;
+&lt;p&gt;是规则&lt;/p&gt;
+&lt;p&gt;是经验&lt;/p&gt;
+&lt;p&gt;太抽象的东西往往不容易理解&lt;/p&gt;
+&lt;p&gt;那么就用简单的事例来把抽象的东西具体化&lt;/p&gt;
+&lt;p&gt;故事要从很久很久以前说起 (￣o￣) . z Z&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="设计模式" scheme="https://joker208.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>你见过最不求上进的人是什么样子？</title>
     <link href="https://joker208.github.io/2017/02/20/%E4%BD%A0%E8%A7%81%E8%BF%87%E6%9C%80%E4%B8%8D%E6%B1%82%E4%B8%8A%E8%BF%9B%E7%9A%84%E4%BA%BA%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E5%AD%90%EF%BC%9F/"/>
     <id>https://joker208.github.io/2017/02/20/你见过最不求上进的人是什么样子？/</id>
     <published>2017-02-20T14:51:02.000Z</published>
-    <updated>2017-02-20T15:07:44.252Z</updated>
+    <updated>2017-02-20T15:07:46.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天在知乎看到@布衣卿关于这个问题的回答</p>
 <p>我想拿过来放在首页，时时惊醒</p>
@@ -144,7 +662,7 @@
     <link href="https://joker208.github.io/2017/02/16/Hashtable%E5%AE%9E%E7%94%A8%E6%A1%88%E4%BE%8B/"/>
     <id>https://joker208.github.io/2017/02/16/Hashtable实用案例/</id>
     <published>2017-02-16T08:46:33.000Z</published>
-    <updated>2017-02-20T14:14:14.919Z</updated>
+    <updated>2017-02-20T14:14:16.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天在翻看以前的项目的时候发现了项目中对Hashtable的使用</p>
 <p>借这个机会巩固一下Hashtable的知识</p>
@@ -188,7 +706,7 @@
     <link href="https://joker208.github.io/2017/02/16/jQuery%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%88%86%E9%A1%B5/"/>
     <id>https://joker208.github.io/2017/02/16/jQuery实现简单分页/</id>
     <published>2017-02-16T07:17:54.000Z</published>
-    <updated>2017-02-22T07:33:16.660Z</updated>
+    <updated>2017-02-22T07:33:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天做的一个首页下方的列表需要加一个分页功能</p>
 <p>不需要特别多功能，只要有页数就行，网上的分页插件功能太多反倒累赘</p>
@@ -223,7 +741,7 @@
     <link href="https://joker208.github.io/2017/02/15/dot%20NET%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
     <id>https://joker208.github.io/2017/02/15/dot NET发送邮件/</id>
     <published>2017-02-15T09:36:00.000Z</published>
-    <updated>2017-02-20T14:14:22.128Z</updated>
+    <updated>2017-02-20T14:14:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>分享一个.NET后台发送邮件的方法</p>
 <p>Demo如下</p>
@@ -256,7 +774,7 @@
     <link href="https://joker208.github.io/2017/02/15/CarouFredSel%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E9%BC%A0%E6%A0%87%E7%A7%BB%E5%85%A5%E5%81%9C%E6%AD%A2/"/>
     <id>https://joker208.github.io/2017/02/15/CarouFredSel插件实现鼠标移入停止/</id>
     <published>2017-02-15T08:17:48.000Z</published>
-    <updated>2017-02-20T14:14:28.462Z</updated>
+    <updated>2017-02-20T14:14:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>公司做北大的一个网站</p>
 <p>里面有一个轮播效果</p>
@@ -306,7 +824,7 @@
     <link href="https://joker208.github.io/2017/02/15/%E5%89%8D%E7%AB%AF%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
     <id>https://joker208.github.io/2017/02/15/前端小技巧/</id>
     <published>2017-02-15T07:19:05.000Z</published>
-    <updated>2017-02-20T14:13:02.986Z</updated>
+    <updated>2017-02-20T14:13:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>在公司主要做网站后端开发</p>
 <p>不可避免的会用到前端的东西</p>
@@ -349,7 +867,7 @@
     <link href="https://joker208.github.io/2016/12/16/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>https://joker208.github.io/2016/12/16/Python学习笔记（一）/</id>
     <published>2016-12-16T07:08:21.000Z</published>
-    <updated>2017-02-20T14:13:29.726Z</updated>
+    <updated>2017-02-20T14:13:30.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ul>
 <li>list</li>
@@ -431,7 +949,7 @@
     <link href="https://joker208.github.io/2016/10/28/js%E5%A4%A9%E6%B0%94%E6%8F%92%E4%BB%B6/"/>
     <id>https://joker208.github.io/2016/10/28/js天气插件/</id>
     <published>2016-10-28T08:50:35.000Z</published>
-    <updated>2017-02-20T14:13:36.481Z</updated>
+    <updated>2017-02-20T14:13:38.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>曾子曰：“吾日三省吾身——为人谋而不忠乎？与朋友交而不信乎？传不习乎？”</p>
@@ -489,7 +1007,7 @@
     <link href="https://joker208.github.io/2016/08/15/%E7%BB%9D%E5%91%BD%E6%AF%92%E5%B8%88%E5%BD%B1%E8%AF%84/"/>
     <id>https://joker208.github.io/2016/08/15/绝命毒师影评/</id>
     <published>2016-08-15T06:25:08.000Z</published>
-    <updated>2017-02-20T14:19:12.043Z</updated>
+    <updated>2017-02-20T14:19:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天终于把绝命毒师看完了</p>
 <p>从第一季到第五季整个影片基调压抑的让人透不过气</p>
@@ -537,7 +1055,7 @@
     <link href="https://joker208.github.io/2016/08/02/%E7%BD%91%E9%A1%B5%E4%B8%80%E9%94%AE%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD/"/>
     <id>https://joker208.github.io/2016/08/02/网页一键分享功能/</id>
     <published>2016-08-02T07:44:17.000Z</published>
-    <updated>2017-02-20T14:12:56.307Z</updated>
+    <updated>2017-02-20T14:12:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>公司用的一般都是现成的分享插件</p>
 <p>推荐给大家<a href="http://www.jiathis.com/" target="_blank" rel="external">JiaThis</a></p>
@@ -567,128 +1085,6 @@
       <category term="js" scheme="https://joker208.github.io/tags/js/"/>
     
       <category term="一键分享" scheme="https://joker208.github.io/tags/%E4%B8%80%E9%94%AE%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo常用命令</title>
-    <link href="https://joker208.github.io/2016/06/10/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://joker208.github.io/2016/06/10/hexo常用命令/</id>
-    <published>2016-06-10T09:07:55.000Z</published>
-    <updated>2017-02-20T14:14:00.943Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>bashnpm install hexo -g #安装<br>npm update hexo -g #升级<br>hexo init #初始化</p>
-<h3 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h3><p>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo p == hexo publish<br>hexo g == hexo generate#生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy#部署</p>
-<a id="more"></a>
-<h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><p>hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP</p>
-<p>hexo clean #清除缓存 网页正常情况下可以忽略此条命令<br>hexo g #生成静态网页<br>hexo d #开始部署</p>
-<h3 id="监视文件变动"><a href="#监视文件变动" class="headerlink" title="监视文件变动"></a>监视文件变动</h3><p>hexo generate #使用 Hexo 生成静态文件快速而且简单<br>hexo generate –watch #监视文件变动</p>
-<h3 id="完成后部署"><a href="#完成后部署" class="headerlink" title="完成后部署"></a>完成后部署</h3><p>两个命令的作用是相同的<br>hexo generate –deploy<br>hexo deploy –generate</p>
-<p>hexo deploy -g<br>hexo server -g</p>
-<h3 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h3><p>hexo publish [layout] <title></title></p>
-<h3 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h3><p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub</p>
-<p>hexo new [layout] <title><br>hexo new photo “My Gallery”<br>hexo new “Hello World” –lang tw</title></p>
-<h3 id="模版（Scaffold）"><a href="#模版（Scaffold）" class="headerlink" title="模版（Scaffold）"></a>模版（Scaffold）</h3><p>hexo new photo “My Gallery”</p>
-<h3 id="设置文章摘要"><a href="#设置文章摘要" class="headerlink" title="设置文章摘要"></a>设置文章摘要</h3><p>以上是文章摘要 <!--more--> 以下是余下全文 </p>
-<h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><p>hexo new page <title><br>hexo new post <title></title></title></p>
-<h3 id="推送到服务器上"><a href="#推送到服务器上" class="headerlink" title="推送到服务器上"></a>推送到服务器上</h3><p>hexo n #写文章<br>hexo g #生成<br>hexo d #部署 #可与hexo g合并为 hexo d -g</p>
-<h3 id="安装RSS插件"><a href="#安装RSS插件" class="headerlink" title="安装RSS插件"></a>安装RSS插件</h3><p>npm install hexo-generator-feed –save</p>
-<h3 id="开启RSS功能"><a href="#开启RSS功能" class="headerlink" title="开启RSS功能"></a>开启RSS功能</h3><p>编辑hexo/_config.yml，添加如下代码：</p>
-<p>rss: /atom.xml #rss地址  默认即可</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;bashnpm install hexo -g #安装&lt;br&gt;npm update hexo -g #升级&lt;br&gt;hexo init #初始化&lt;/p&gt;
-&lt;h3 id=&quot;简写&quot;&gt;&lt;a href=&quot;#简写&quot; class=&quot;headerlink&quot; title=&quot;简写&quot;&gt;&lt;/a&gt;简写&lt;/h3&gt;&lt;p&gt;hexo n “我的博客” == hexo new “我的博客” #新建文章&lt;br&gt;hexo p == hexo publish&lt;br&gt;hexo g == hexo generate#生成&lt;br&gt;hexo s == hexo server #启动服务预览&lt;br&gt;hexo d == hexo deploy#部署&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="hexo" scheme="https://joker208.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO+githubpage搭建博客</title>
-    <link href="https://joker208.github.io/2016/06/07/HEXO-githubpage%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://joker208.github.io/2016/06/07/HEXO-githubpage搭建博客/</id>
-    <published>2016-06-07T06:26:54.000Z</published>
-    <updated>2017-02-20T14:14:07.458Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>一千个人眼中有一千个哈姆雷特<br>虽然网上已经不乏相关的教程，我还是把我的搭建步骤和大家分享，我的电脑是windows系统，有问题的话可以留言，我们一起来讨论哈~</p>
-<h3 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h3><p>搭建博客首先要了解一下几个基本概念（<del>其实我也没有看完</del>）</p>
-<ul>
-<li><a href="http://git-scm.com/book/zh/v2" target="_blank" rel="external">Git</a></li>
-<li><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a></li>
-<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a></li>
-<li><a href="http://www.markdown.cn/" target="_blank" rel="external">Markdown</a></li>
-</ul>
-<a id="more"></a>
-<p>然后需要下载几个安装包，有些安装包需要翻墙不好下载，直接用我的百度云分享</p>
-<ul>
-<li>Node.js（<a href="http://pan.baidu.com/s/1bpveSwv" target="_blank" rel="external">node-v6.9.5-x64.msi</a>）</li>
-<li>Git（<a href="http://pan.baidu.com/s/1c2xKHIo" target="_blank" rel="external">Git-2.11.1-64-bit.exe</a>）</li>
-</ul>
-<p>最后，记得在<a href="https://github.com/" target="_blank" rel="external">Github</a>上注册个帐号<br>ok，准备工作就做好了</p>
-<h3 id="三、搭建博客"><a href="#三、搭建博客" class="headerlink" title="三、搭建博客"></a>三、搭建博客</h3><p><strong>第一步，把上面提到的两个安装包先给安装了</strong></p>
-<p><strong>第二步，将你的Github帐号与你的电脑绑定</strong></p>
-<p>先检查你的电脑里有没有SSH keys<br>在电脑的桌面上点鼠标右键，选择Git Bash Here，就会出来黑框框，键入下面代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls -al ~/.ssh</div></pre></td></tr></table></figure></p>
-<p>默认情况下，public keys的文件名是以下的格式之一：id_dsa.pub、id_ecdsa.pub、id_ed25519.pub、id_rsa.pub<br>如果没有SSH key，则生成新的SSH key<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure></p>
-<p>这里的邮箱是你申请Github帐号时的邮箱<br>成功后会在<em>C:\Users\用户名\ .ssh</em>路径下生成两个文件id_rsa 以及id_rsa.pub<br>之后在github添加SSH Key,在任意界面右上角，点击你的头像，选择Settings-&gt; SSH keys-&gt;New SSH key<br>将id_rsa.pub里面的内容全部复制到Key框里面</p>
-<p>ok，绑定成功~</p>
-<p><strong>第三步，搭建本地博客</strong><br>在本地新建一个文件夹，比如Blog，文件右键，选择Git Bash Here<br>输入指令安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure></p>
-<p>稍等片刻。。。<br>安装完成后，输入以下指令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure></p>
-<p>该命令会在目标文件夹内建立网站所需要的所有文件<br>接下来是安装依赖包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure></p>
-<p>部署形成文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure></p>
-<p>再接下来运行server 跑起hexo服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure></p>
-<p>这样博客在本地已经搭建好了，我们可以打开浏览器，输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>便可看到默认的博客了</p>
-<p>鼓掌（/≧▽≦/），等等，其实还有第四步</p>
-<p><strong>第四步，博客上线</strong></p>
-<p>登录Github，点击”New repository”，新建一个版本库<br>输入仓库名：你的Github名称.github.io<br>然后点击Create repository<br>这里的Repository name一定要用的github的用户名，不然显示不出来，因为githubPage只能你的用户名<br>接下来，点击右边的“Setting”菜单进入设置,点击”Launch automatic page generator”<br>进入之后点击底部的”Continue to layouts”<br>之后选择一个随意模版，点击”Publish page”,发布github默认生成的一个静态站点<br>ok，线上的工作完成，接下来修改一下本地文件</p>
-<p>打开本地博客根目录下的配置文件_config.yml<br>编辑最后面的deploy属性，加入代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">type</span>: git</div><div class="line">repository: git@github.com:username/username.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure></p>
-<p>这里列举配置文件_config.yml的部分关键配置，可自行修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Hexo Configuration</span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></div><div class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></div><div class="line"></div><div class="line"><span class="comment"># Site</span></div><div class="line">title:  <span class="comment">#网站的标题</span></div><div class="line">subtitle:  <span class="comment">#副标题</span></div><div class="line">description:  <span class="comment">#描述</span></div><div class="line">author:  <span class="comment">#作者信息</span></div><div class="line">avatar:  <span class="comment">#头像，图片位置在相应主题目录下的images</span></div><div class="line">language: zh-Hans <span class="comment">#中文简体</span></div><div class="line">email: </div><div class="line">timezone:</div><div class="line"></div><div class="line"><span class="comment"># Extensions</span></div><div class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></div><div class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></div><div class="line">theme:  <span class="comment">#配置主题</span></div><div class="line">stylus:</div><div class="line">  compress: <span class="literal">true</span> <span class="comment">#自适应布局</span></div><div class="line"></div><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git <span class="comment">#部署环境，基于hexo+githubpage,所以这里使用git。注意：不同版本的hexo，type有可能不同，3.x以后应使用git,具体参看官方文档</span></div><div class="line">  repository: git@github.com:username/username.github.io.git <span class="comment">#git仓库地址，替换成你的username即可，其他保持不变，后面会提到如何创建git仓库</span></div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>安装hexo-deployer-git插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>部署你本地的主题到github上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generator <span class="comment">#简写 hexo g</span></div><div class="line">hexo deploy <span class="comment">#简写 hexo d</span></div></pre></td></tr></table></figure></p>
-<p>最后，就可以在线上查看搭建好的博客了<a href="https://username.github.io" target="_blank" rel="external">https://username.github.io</a></p>
-<p>这次，博客真的就搭建完成了，干杯!~( ゜▽゜)つロ</p>
-<p>对了，附送我用的主题以及知乎上的主题收集</p>
-<ul>
-<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a></li>
-<li><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题？-知乎</a></li>
-</ul>
-<blockquote>
-<p>文章参考</p>
-<ul>
-<li><a href="http://crazymilk.github.io/" target="_blank" rel="external">http://crazymilk.github.io/</a></li>
-<li><a href="http://blog.csdn.net/wx_jin/article/details/51027783" target="_blank" rel="external">http://blog.csdn.net/wx_jin/article/details/51027783</a></li>
-</ul>
-</blockquote>
-<hr>
-<p>补充：HEXO里面一定要注意空格，配置文件_config.yml中的属性一定要在冒号后面空一格，不然会报错。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot; title=&quot;一、前言&quot;&gt;&lt;/a&gt;一、前言&lt;/h3&gt;&lt;p&gt;一千个人眼中有一千个哈姆雷特&lt;br&gt;虽然网上已经不乏相关的教程，我还是把我的搭建步骤和大家分享，我的电脑是windows系统，有问题的话可以留言，我们一起来讨论哈~&lt;/p&gt;
-&lt;h3 id=&quot;二、准备工作&quot;&gt;&lt;a href=&quot;#二、准备工作&quot; class=&quot;headerlink&quot; title=&quot;二、准备工作&quot;&gt;&lt;/a&gt;二、准备工作&lt;/h3&gt;&lt;p&gt;搭建博客首先要了解一下几个基本概念（&lt;del&gt;其实我也没有看完&lt;/del&gt;）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://git-scm.com/book/zh/v2&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://hexo.io/zh-cn/&quot;&gt;Hexo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.markdown.cn/&quot;&gt;Markdown&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://joker208.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="github" scheme="https://joker208.github.io/tags/github/"/>
-    
-      <category term="hexo" scheme="https://joker208.github.io/tags/hexo/"/>
     
   </entry>
   

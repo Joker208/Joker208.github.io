@@ -85,6 +85,8 @@
 				
 					<a class="github" target="_blank" href="https://github.com/Joker208" title="github"><i class="icon-github"></i></a>
 		        
+					<a class="qq" target="_blank" href="/772090298" title="qq"><i class="icon-qq"></i></a>
+		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Joker208" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:772090298@qq.com" title="mail"><i class="icon-mail"></i></a>
@@ -130,6 +132,8 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Joker208" title="github"><i class="icon-github"></i></a>
 			        
+						<a class="qq" target="_blank" href="/772090298" title="qq"><i class="icon-qq"></i></a>
+			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Joker208" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:772090298@qq.com" title="mail"><i class="icon-mail"></i></a>
@@ -164,34 +168,53 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-net验证码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Golang学习笔记（十四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/01/net验证码/">.NET验证码</a>
+      <a class="article-title" href="/2018/09/19/Golang学习笔记（十四）/">Golang学习笔记（十四）</a>
     </h1>
   
 
         
-        <a href="/2017/03/01/net验证码/" class="archive-article-date">
-  	<time datetime="2017-03-01T07:56:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
+        <a href="/2018/09/19/Golang学习笔记（十四）/" class="archive-article-date">
+  	<time datetime="2018-09-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>网上的验证码总是不太好用</p>
-<p>最近公司做的一个网站被用作短信轰炸</p>
-<p>需要加上图片验证码</p>
-<p>分享一下.NET验证码的Demo</p>
-<p>也算做个备份，(๑•̀ㅂ•́)و✧</p>
-        
-          <a class="article-more-a" href="/2017/03/01/net验证码/#more">more >></a>
-        
+        <h2 id="Go语言特性"><a href="#Go语言特性" class="headerlink" title="Go语言特性"></a>Go语言特性</h2><ul>
+<li>可直接编译成机器码，直接生成可执行二进制文件</li>
+<li>静态类型语言，可以在编译的时候检查出来隐藏的大多数问题<ul>
+<li>动态类型语言：是指在运行期间才去做数据类型检查的语言，说的是<strong>数据类型</strong></li>
+<li>动态语言：说的是运行是改变结构，说的是<strong>代码结构</strong></li>
+<li>静态类型语言：静态语言的数据类型是在编译期间（或运行之前）确定的，编写代码的时候要明确确定变量的数据类型</li>
+<li>静态语言：与动态语言相对应的，运行时结构不可变的语言就是静态语言</li>
+</ul>
+</li>
+<li>大量的第三方包可以使用</li>
+<li>语言层面支持并发 go hello（）</li>
+<li>支持垃圾回收</li>
+<li>语言简洁，关键字只有25个，支持继承、重载、对象</li>
+<li>跨平台，引用plan9的代码，不依赖系统信息<ul>
+<li>Plan9是一个分布式操作系统，它能把网络上一切的资源当作文件来进行使用。Plan9中最本质的思想是“一切皆是文件”</li>
+</ul>
+</li>
+</ul>
+<h2 id="Go语言的优劣"><a href="#Go语言的优劣" class="headerlink" title="Go语言的优劣"></a>Go语言的优劣</h2><ul>
+<li>Go语言适合做服务端程序，例如各种web程序，服务器软件，命令行工具</li>
+<li>Go语言不适合开发有图形界面的应用程序，官方没有提供相关的图形库</li>
+<li>不支持多态<ul>
+<li>多态：多态性是允许你将父对象设置成为和一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。简单的说：允许将子类类型的指针赋值给父类类型的指针（一个接口，多种方法）。<br>C++ 支持两种多态性：编译时多态性，运行时多态性。<br>a、编译时多态性（静态多态）：通过重载函数实现<br>b、运行时多态性（动态多态）：通过虚函数实现。</li>
+</ul>
+</li>
+</ul>
+
       
 
       
@@ -204,11 +227,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">.NET</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">验证码</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
         		</li>
       		
 		</ul>
@@ -229,7 +248,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/01/net验证码/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/19/Golang学习笔记（十四）/">展开全文 >></a>
         </p>
       
 
@@ -247,36 +266,75 @@
 
 
   
-    <article id="post-设计模式初探" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Golang学习笔记（四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/21/设计模式初探/">设计模式初探</a>
+      <a class="article-title" href="/2018/06/19/Golang学习笔记（四）/">Golang学习笔记（四）</a>
     </h1>
   
 
         
-        <a href="/2017/02/21/设计模式初探/" class="archive-article-date">
-  	<time datetime="2017-02-21T10:03:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
+        <a href="/2018/06/19/Golang学习笔记（四）/" class="archive-article-date">
+  	<time datetime="2018-06-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>刚到公司时</p>
-<p>我就向我们的主管果哥问过一个问题</p>
-<p>从我这样的初级开发到您这样的开发大牛都需要学习些什么？</p>
-<p>是需要知道比如说clr这些底层的东西吗？</p>
-<p>果哥说，你先去看看设计模式吧</p>
-<p>于是果断开始研究“设计模式”</p>
-<p>先从基本的概念说起~</p>
-        
-          <a class="article-more-a" href="/2017/02/21/设计模式初探/#more">more >></a>
-        
+        <h2 id="GO指南"><a href="#GO指南" class="headerlink" title="GO指南"></a>GO指南</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fmt.Println(<span class="string">"My favorite number is"</span>, rand.Intn(<span class="number">10</span>))</div></pre></td></tr></table></figure>
+<p>例子上的代码运行出的结果是不会变化的并不能算真正的随机</p>
+<p>需要添加随机种子</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rand.Seed(time.Now().UnixNano())</div></pre></td></tr></table></figure>
+<p>首字母大写为共用方法，可以被外部调用<br>首字母小写只能在包内调用</p>
+<p>初始化变量时可以省略类型，从初始值中获得类型</p>
+<p>‘:=’结构不能用在函数外</p>
+<p>byte 是 uint8 的别名<br>rune 是 int32 的别名</p>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p><strong>数值转换</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">11</span></div><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="keyword">float64</span>(i)</div><div class="line"><span class="keyword">var</span> u <span class="keyword">uint</span> = <span class="keyword">uint</span>(f)</div></pre></td></tr></table></figure>
+<p><strong>int 转 string</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int</span> = <span class="number">11</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span>= strconv.Itoa(i)</div></pre></td></tr></table></figure>
+<p><strong>int64 转 string</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">int64</span> = <span class="number">11</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span>= strconv.FormatInt(i,<span class="number">10</span>)</div></pre></td></tr></table></figure>
+<p><strong>uint64 转 string</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i <span class="keyword">uint64</span>=<span class="number">11</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span>=strconv.FormatUint(i,<span class="number">10</span>)</div></pre></td></tr></table></figure>
+<p><strong>string 转 int</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"11"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">int</span></div><div class="line">i, err := strconv.Atoi(s)</div></pre></td></tr></table></figure>
+<p><strong>string 转 int64</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"11"</span></div><div class="line"><span class="keyword">var</span> i <span class="keyword">int64</span></div><div class="line">i, err := strconv.ParseInt(s, <span class="number">10</span>, <span class="number">64</span>)</div></pre></td></tr></table></figure>
+<p><strong>float64 转 string</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span> = <span class="number">11.1</span></div><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = strconv.FormatFloat(f, <span class="string">'f'</span>, <span class="number">-1</span>, <span class="number">64</span>)</div></pre></td></tr></table></figure>
+<p><strong>string 转 float64</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"11.1"</span></div><div class="line"><span class="keyword">var</span> f <span class="keyword">float64</span></div><div class="line">f, err := strconv.ParseFloat(s, <span class="number">64</span>)</div></pre></td></tr></table></figure>
+<p>switch中fallthrough会直接执行下一个case或default语句（无论条件是否满足）<br>fallthrough必须是case中的最后一句</p>
+<p>defer调用的函数会以栈的形式存储，调用时遵照后进先出的原则</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">		<span class="keyword">defer</span> fmt.Println(i)</div><div class="line">	&#125;</div><div class="line">	fmt.Println(<span class="string">"done"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">API server listening at: 127.0.0.1:47919</div><div class="line">done</div><div class="line">9</div><div class="line">8</div><div class="line">7</div><div class="line">6</div><div class="line">5</div><div class="line">4</div><div class="line">3</div><div class="line">2</div><div class="line">1</div><div class="line">0</div></pre></td></tr></table></figure>
+<h3 id="slice添加元素"><a href="#slice添加元素" class="headerlink" title="slice添加元素"></a>slice添加元素</h3><p>func append(s []T, vs …T) []T</p>
+<p>第一个参数为要添加元素的slice<br>第二个参数为要添加的元素</p>
+<p><strong>原理</strong> </p>
+<p>append首先检查是否到达最大容量cap</p>
+<p>没有的话就直接在后面添加元素</p>
+<p>如果超过cap向内存申请一个长度是原来两倍的新数组</p>
+<p>将原来的值都复制过去</p>
+<p>slice指向新的数组并释放掉原来的数组</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包就是一个函数引用函数以外的变量</p>
+<p>斐波那契闭包</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">fibonacci</span><span class="params">()</span> <span class="title">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</div><div class="line">	a, b := <span class="number">0</span>, <span class="number">1</span></div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">()</span> <span class="title">int</span></span> &#123;</div><div class="line">		temp := a</div><div class="line">		a, b = b, (a + b)</div><div class="line">		<span class="keyword">return</span> temp</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	f := fibonacci()</div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">		fmt.Println(f())</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="goroutine线程"><a href="#goroutine线程" class="headerlink" title="goroutine线程"></a>goroutine线程</h3><p>go f() 开启新的线程</p>
+<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>管道创建</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"></div><div class="line">ch &lt;- v <span class="comment">//向管道传值</span></div><div class="line">v &lt;- ch <span class="comment">//接收管道的值</span></div></pre></td></tr></table></figure>
+<p>一般情况下，只有传值或只有接收都会造成线程阻塞</p>
+<p>ch := make(chan int,10)//缓冲管道</p>
+<p>当管道有缓冲时，当缓冲区满的时候向管道传值才会阻塞<br>当缓冲区为空的时候接收管道值才会阻塞</p>
+<p>select可以使多个通信在同一个线程上等待</p>
+<p>switch的case不需要break结尾<br>switch的case不需要break结尾<br>switch的case不需要break结尾</p>
+
       
 
       
@@ -289,7 +347,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
         		</li>
       		
 		</ul>
@@ -310,7 +368,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/21/设计模式初探/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/19/Golang学习笔记（四）/">展开全文 >></a>
         </p>
       
 
@@ -328,34 +386,78 @@
 
 
   
-    <article id="post-你见过最不求上进的人是什么样子？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Golang学习笔记（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/你见过最不求上进的人是什么样子？/">你见过最不求上进的人是什么样子？</a>
+      <a class="article-title" href="/2018/06/10/Golang学习笔记（三）/">Golang学习笔记（三）</a>
     </h1>
   
 
         
-        <a href="/2017/02/20/你见过最不求上进的人是什么样子？/" class="archive-article-date">
-  	<time datetime="2017-02-20T14:51:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
+        <a href="/2018/06/10/Golang学习笔记（三）/" class="archive-article-date">
+  	<time datetime="2018-06-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天在知乎看到@布衣卿关于这个问题的回答</p>
-<p>我想拿过来放在首页，时时惊醒</p>
-<h3 id="共勉"><a href="#共勉" class="headerlink" title="共勉"></a>共勉</h3><p>我见过的最不求上进的人，既不是学霸又不全算学渣。</p>
-<p>他们课听的迷迷糊糊，作业做一些抄一些。</p>
-<p>想逃课又心存顾忌，行为也不公开对抗规范纪律。</p>
-        
-          <a class="article-more-a" href="/2017/02/20/你见过最不求上进的人是什么样子？/#more">more >></a>
-        
+        <h2 id="golang-并行"><a href="#golang-并行" class="headerlink" title="golang  并行"></a>golang  并行</h2><h3 id="goroutines、信道和死锁"><a href="#goroutines、信道和死锁" class="headerlink" title="goroutines、信道和死锁"></a>goroutines、信道和死锁</h3><h4 id="（一）goroutines"><a href="#（一）goroutines" class="headerlink" title="（一）goroutines"></a>（一）goroutines</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    loop()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>goroutine还没来得及跑loop的时候，主函数已经退出</p>
+<p>这时需要一个类似join的东西来阻塞住主线。那就是信道</p>
+<h4 id="（二）信道"><a href="#（二）信道" class="headerlink" title="（二）信道"></a>（二）信道</h4><p>信道是goroutine之间互相通讯的东西。<br>类似我们Unix上的管道（可以在进程间传递消息）， 用来goroutine之间发消息和接收消息。<br>其实，就是在做goroutine之间的内存共享。</p>
+<p>使用make来建立一个信道:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> messages <span class="keyword">chan</span> <span class="keyword">string</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">string</span>)</div><div class="line">    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">(message <span class="keyword">string</span>)</span></span> &#123;</div><div class="line">        messages &lt;- message <span class="comment">// 存消息</span></div><div class="line">    &#125;(<span class="string">"Ping!"</span>)</div><div class="line">    fmt.Println(&lt;-messages) <span class="comment">// 取消息</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>默认的，信道的存消息和取消息都是阻塞的 (叫做无缓冲的信道)</p>
+<p>无缓冲的信道在取消息和存消息的时候都会挂起当前的goroutine，除非另一端已经准备好</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ch <span class="keyword">chan</span> <span class="keyword">int</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</div><div class="line">    ch &lt;- <span class="number">0</span>  <span class="comment">// 向ch中加数据，如果没有其他goroutine来取走这个数据，那么挂起foo, 直到main函数把0这个数据拿走</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">go</span> foo()</div><div class="line">    &lt;- ch <span class="comment">// 从ch取数据，如果ch中还没放数据，那就挂起main线，直到foo函数中放数据为止</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果不用信道来阻塞主线的话，主线就会过早跑完，loop线都没有机会执行</p>
+<p>其实，无缓冲的信道永远不会存储数据，只负责数据的流通</p>
+<p>从无缓冲信道取数据，必须要有数据流进来才可以，否则当前线阻塞</p>
+<p>数据流入无缓冲信道, 如果没有其他goroutine来拿走这个数据，那么当前线阻塞</p>
+<p>如果信道正有数据在流动，我们还要加入数据，或者信道干涩，我们一直向无数据流入的空信道取数据就会引起死锁</p>
+<h4 id="（三）死锁"><a href="#（三）死锁" class="headerlink" title="（三）死锁"></a>（三）死锁</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line">    &lt;- ch <span class="comment">// ??main goroutine, ??c??</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 只有一个goroutine, 所以当你向里面加数据或者存数据的话，都会锁死信道，<br> 并且阻塞当前 goroutine, 也就是所有的goroutine(其实就main线一个)都在等待信道的开放(没人拿走数据信道是不会开放的)，<br> 也就是死锁</p>
+<p>几个死锁的例子<br>1.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line">    ch &lt;- <span class="number">1</span> <span class="comment">// 1流入信道，堵塞当前线, 没人取走数据信道不会打开</span></div><div class="line">    fmt.Println(<span class="string">"This line code wont run"</span>) <span class="comment">//在此行执行之前Go就会报死锁</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ch1 <span class="keyword">chan</span> <span class="keyword">int</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"><span class="keyword">var</span> ch2 <span class="keyword">chan</span> <span class="keyword">int</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">say</span><span class="params">(s <span class="keyword">string</span>)</span></span> &#123;</div><div class="line">    fmt.Println(s)</div><div class="line">    ch1 &lt;- &lt;- ch2 <span class="comment">// ch1 等待 ch2流出的数据</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">go</span> say(<span class="string">"hello"</span>)</div><div class="line">    &lt;- ch1  <span class="comment">// 堵塞主线</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">c, quit := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>), <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"></div><div class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</div><div class="line">   c &lt;- <span class="number">1</span>  <span class="comment">// c通道的数据没有被其他goroutine读取走，堵塞当前goroutine</span></div><div class="line">   quit &lt;- <span class="number">0</span> <span class="comment">// quit始终没有办法写入数据</span></div><div class="line">&#125;()</div><div class="line"></div><div class="line">&lt;- quit <span class="comment">// quit 等待数据的写</span></div></pre></td></tr></table></figure>
+<p><strong>避免死锁的方法:</strong></p>
+<ol>
+<li><p>避免数据有存无取 或者有取无存</p>
+</li>
+<li><p>使用缓冲信道</p>
+</li>
+</ol>
+<h4 id="缓冲信道"><a href="#缓冲信道" class="headerlink" title="缓冲信道"></a>缓冲信道</h4><p>在声明一个信道的时候，我们给make以第二个参数来指明它的容量(默认为0，即无缓冲):</p>
+<p>var ch chan int = make(chan int, 2) // 写入2个元素都不会阻塞当前goroutine, 存储个数达到2的时候会阻塞</p>
+<p>缓冲信道是先进先出的，我们可以把缓冲信道看作为一个线程安全的队列：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">3</span>)</div><div class="line">    ch &lt;- <span class="number">1</span></div><div class="line">    ch &lt;- <span class="number">2</span></div><div class="line">    ch &lt;- <span class="number">3</span></div><div class="line"></div><div class="line">    fmt.Println(&lt;-ch) <span class="comment">// 1</span></div><div class="line">    fmt.Println(&lt;-ch) <span class="comment">// 2</span></div><div class="line">    fmt.Println(&lt;-ch) <span class="comment">// 3</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Go语言允许我们使用range来读取信道:</p>
+<p>但是range可能会造成死锁，原因是range不等到信道关闭是不会结束读取的。<br>也就是如果缓冲信道干涸了，那么range就会阻塞当前goroutine, 所以死锁</p>
+<p>为了避免以上情况，有以下两种方式<br>1.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">3</span>)</div><div class="line">ch &lt;- <span class="number">1</span></div><div class="line">ch &lt;- <span class="number">2</span></div><div class="line">ch &lt;- <span class="number">3</span></div><div class="line"><span class="keyword">for</span> v := <span class="keyword">range</span> ch &#123;</div><div class="line">    fmt.Println(v)</div><div class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(ch) &lt;= <span class="number">0</span> &#123; <span class="comment">// 如果现有数据量为0，跳出循环</span></div><div class="line">        <span class="keyword">break</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">3</span>)</div><div class="line">ch &lt;- <span class="number">1</span></div><div class="line">ch &lt;- <span class="number">2</span></div><div class="line">ch &lt;- <span class="number">3</span></div><div class="line"></div><div class="line"><span class="comment">// 显式地关闭信道</span></div><div class="line"><span class="built_in">close</span>(ch)</div><div class="line"></div><div class="line"><span class="keyword">for</span> v := <span class="keyword">range</span> ch &#123;</div><div class="line">    fmt.Println(v)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="并行"><a href="#并行" class="headerlink" title="并行"></a>并行</h2><h3 id="并发与并行"><a href="#并发与并行" class="headerlink" title="并发与并行"></a>并发与并行</h3><p>两个队列，一个Coffee机器，那是并发<br>两个队列，两个Coffee机器，那是并行</p>
+<p>为了达到真正的并行，我们需要告诉Go我们允许同时最多使用多个核，例如下面的方法</p>
+<p>1.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">    <span class="string">"fmt"</span></div><div class="line">    <span class="string">"runtime"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">var</span> quit <span class="keyword">chan</span> <span class="keyword">int</span> = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">100</span>; i++ &#123;</div><div class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</div><div class="line">    &#125;</div><div class="line">    quit &lt;- <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    runtime.GOMAXPROCS(<span class="number">2</span>) <span class="comment">// 最多使用2个核</span></div><div class="line"></div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">2</span>; i++ &#123;</div><div class="line">        &lt;- quit</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">        runtime.Gosched() <span class="comment">// 显式地让出CPU时间给其他goroutine</span></div><div class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</div><div class="line">    &#125;</div><div class="line">    quit &lt;- <span class="number">0</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">2</span>; i++ &#123;</div><div class="line">        &lt;- quit</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的两个例子都用到了runtime调节器</p>
+<p>runtime调度器</p>
+<p>Gosched 让出cpu</p>
+<p>NumCPU 返回当前系统的CPU核数量</p>
+<p>GOMAXPROCS 设置最大的可同时使用的CPU核数</p>
+<p>Goexit 退出当前goroutine(但是defer语句会照常执行)</p>
+
       
 
       
@@ -368,84 +470,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">鸡汤</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/20/你见过最不求上进的人是什么样子？/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Hashtable实用案例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/16/Hashtable实用案例/">Hashtable实用案例</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/16/Hashtable实用案例/" class="archive-article-date">
-  	<time datetime="2017-02-16T08:46:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天在翻看以前的项目的时候发现了项目中对Hashtable的使用</p>
-<p>借这个机会巩固一下Hashtable的知识</p>
-<p>Hashtable是非泛型的集合，所以在检索和存储值类型时通常会发生装箱与拆箱的操作</p>
-        
-          <a class="article-more-a" href="/2017/02/16/Hashtable实用案例/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hashtable</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
         		</li>
       		
 		</ul>
@@ -466,7 +491,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/16/Hashtable实用案例/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/10/Golang学习笔记（三）/">展开全文 >></a>
         </p>
       
 
@@ -484,33 +509,76 @@
 
 
   
-    <article id="post-jQuery实现简单分页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Golang学习笔记（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/16/jQuery实现简单分页/">jQuery实现简单分页</a>
+      <a class="article-title" href="/2018/06/09/Golang学习笔记（二）/">Golang学习笔记（二）</a>
     </h1>
   
 
         
-        <a href="/2017/02/16/jQuery实现简单分页/" class="archive-article-date">
-  	<time datetime="2017-02-16T07:17:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-16</time>
+        <a href="/2018/06/09/Golang学习笔记（二）/" class="archive-article-date">
+  	<time datetime="2018-06-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天做的一个首页下方的列表需要加一个分页功能</p>
-<p>不需要特别多功能，只要有页数就行，网上的分页插件功能太多反倒累赘</p>
-<p>于是就自己写了一个简单的分页控件</p>
-<p>随便练习一下jQuery</p>
-        
-          <a class="article-more-a" href="/2017/02/16/jQuery实现简单分页/#more">more >></a>
-        
+        <h2 id="golang-接口-反射-并发"><a href="#golang-接口-反射-并发" class="headerlink" title="golang 接口 反射 并发"></a>golang 接口 反射 并发</h2><h3 id="一、接口"><a href="#一、接口" class="headerlink" title="一、接口"></a>一、接口</h3><h4 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h4><p>Go不是传统意义上的面向对象编程语言，它没有类及其继承的概念。<br>接口是一种契约，实现类型必须满足它，它描述了类型的行为，规定类型可以做什么。<br>接口彻底将类型能做什么，以及如何做分离开来，使得相同接口的变量在不同的时刻表现出不同的行为，<br>这就是多态的本质</p>
+<p>接口的特性是golang支持鸭子类型的基础，<br>即“如果它走起来像鸭子，叫起来像鸭子（实现了接口要的方法），它就是一只鸭子（可以被赋值给接口的值）”。<br>凭借接口机制和鸭子类型，golang提供了一种游离于类、继承、模板之外的更加灵活强大的选择。</p>
+<p><strong>注意的点</strong></p>
+<ol>
+<li>类型不需要显式地声明它实现了某个接口，接口被隐式地实现，多个类型可以实现同一个接口</li>
+<li>一个类型可以实现多个接口</li>
+<li>实现了某个接口的类型，可以有其它的方法（多对多）</li>
+</ol>
+<h4 id="接口方法中类型T和-T的区别"><a href="#接口方法中类型T和-T的区别" class="headerlink" title="接口方法中类型T和*T的区别"></a>接口方法中类型T和*T的区别</h4><p>(指针)<br>指针是存储一个变量的内存地址的变量。 （不支持指针运算）</p>
+<p>取地址符是 &amp;，放到一个变量前使用就会返回相应变量的内存地址<br>解引用指针的意思是通过指针访问被指向的值。指针 a 的解引用表示为：*a。</p>
+<p>不要传递指向数组的指针给函数，而是使用切片<br>假设我们需要通过函数修改一个数组。一个办法是将数组的指针作为参数传递给函数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (  </div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">modify</span><span class="params">(arr *[3]<span class="keyword">int</span>)</span></span> &#123;  </div><div class="line">    (*arr)[<span class="number">0</span>] = <span class="number">90</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </div><div class="line">    a := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>&#125;</div><div class="line">    modify(&amp;a)</div><div class="line">    fmt.Println(a)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (  </div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">modify</span><span class="params">(arr *[3]<span class="keyword">int</span>)</span></span> &#123;  </div><div class="line">    arr[<span class="number">0</span>] = <span class="number">90</span>  <span class="comment">//a[x] 是 (*a)[x] 的简写，因此上面的程序中，(*arr)[0] 可以替换为 arr[0]。</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </div><div class="line">    a := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>&#125;</div><div class="line">    modify(&amp;a)</div><div class="line">    fmt.Println(a)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (  </div><div class="line">    <span class="string">"fmt"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">modify</span><span class="params">(sls []<span class="keyword">int</span>)</span></span> &#123;  </div><div class="line">    sls[<span class="number">0</span>] = <span class="number">90</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </div><div class="line">    a := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>&#125;</div><div class="line">    modify(a[:])  <span class="comment">//虽然可以通过传递数组指针给函数的方式来修改原始数组的值，但这在 Go 中不是惯用的方式，我们可以使用切片完成同样的事情。</span></div><div class="line">    fmt.Println(a)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Go 语言规范定义了接口方法集的调用规则：</p>
+<p>类型 <em>T 的可调用方法集包含接受者为 </em>T 或 T 的所有方法集<br>类型 T 的可调用方法集包含接受者为 T 的所有方法<br>类型 T 的可调用方法集不包含接受者为 *T 的方法</p>
+<h4 id="空接口"><a href="#空接口" class="headerlink" title="空接口"></a>空接口</h4><p>什么方法都没定义的接口就是空接口。根据Golang的概念，空接口被任何类型隐式实现，所以空接口可以容纳任何类型。</p>
+<h3 id="二、反射"><a href="#二、反射" class="headerlink" title="二、反射"></a>二、反射</h3><p>反射是在golang程序运行时检查变量所具有类型的一种机制</p>
+<p>在基本的层面上，反射只是一个检查存储在接口变量中的类型和值的算法。<br>使用反射机制，首先需要导入reflect包，reflect包中有两个重要类型需要了解，reflect.Type和reflect.Value，这两个类型使得可以访问变量的内容。<br>与此相关的，还有两个简单的函数，reflect.TypeOf和reflect.ValueOf，可以从接口值中分别获取reflect.Type和reflect.Value。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line">   <span class="string">"fmt"</span></div><div class="line">   <span class="string">"reflect"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">   <span class="keyword">var</span> x <span class="keyword">float64</span> = <span class="number">1.1</span></div><div class="line">   fmt.Println(<span class="string">"reflect.Value:"</span>, reflect.ValueOf(x))</div><div class="line">   fmt.Println(<span class="string">"reflect.Type:"</span>, reflect.TypeOf(x))</div><div class="line">   v := reflect.ValueOf(x)</div><div class="line">   fmt.Println(<span class="string">"reflect.Type:"</span>,v.Type())</div><div class="line">   fmt.Println(<span class="string">"actual value:"</span>, v.Float())</div><div class="line">   fmt.Println(<span class="string">"kind is float64?"</span>, v.Kind() == reflect.Float64)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>golang采用静态类型机制，TypeOf返回静态类型</p>
+<h4 id="反射三法则"><a href="#反射三法则" class="headerlink" title="反射三法则"></a>反射三法则</h4><blockquote>
+<p> 官方文档 <a href="http://blog.golang.org/laws-of-reflection" target="_blank" rel="external">http://blog.golang.org/laws-of-reflection</a></p>
+</blockquote>
+<ol>
+<li><p><strong>法则一：从接口值到反射对象的反射</strong>（<em>Reflection goes from interface value toreflection object</em>）</p>
+<p>代表方法为reflect.ValueOf和reflect.TypeOf<br>func ValueOf(i interface{}) Value<br>func TypeOf(i interface{}) Type</p>
+</li>
+<li><p><strong>法则二：从反射对象到接口值的反射</strong>（<em>Reflection goes from reflection object to interface value</em>）</p>
+<p>从reflect.Value可以使用Interface方法还原接口值；<br>可以高效地打包类型和值信息到接口表达中，并返回这个结果</p>
+<p>方法声明：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v Value)</span> <span class="title">Interface</span><span class="params">()</span> <span class="title">interface</span></span>&#123;&#125;</div></pre></td></tr></table></figure>
+<p>通过反射对象 v 可以打印 float64 的表达值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">y :=v.Interface().(<span class="keyword">float64</span>) <span class="comment">// y 将为类型 float64。</span></div><div class="line">fmt.Println(y)</div></pre></td></tr></table></figure>
+<p>更为简洁的实现</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fmt.Println(v.Interface())</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p><strong>法则三：为了修改反射对象，其值必须可设置</strong>（<em>To modify a reflectionobject, the value must be settable</em>）</p>
+<p>反射对象可以通过SetFloat等方法设置值，通过CanSet判断可设置性。但是这里面有坑，有些值是不可设置的</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> (</div><div class="line"> <span class="string">"fmt"</span></div><div class="line"> <span class="string">"reflect"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> x <span class="keyword">float64</span> = <span class="number">1.1</span></div><div class="line">    v := reflect.ValueOf(x)</div><div class="line">    fmt.Println(<span class="string">"settability of v:"</span>,v.CanSet())</div><div class="line">    v.SetFloat(<span class="number">1.2</span>)<span class="comment">//错误</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>V := reflect.ValueOf(x)，这个函数是值传递，即传递了一个x的副本到函数中，而非x本身，值传递的参数是不能被真正修改的</p>
+<p>借助Elem方法，通过指针来修改指针指向的具体值。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v Value)</span><span class="title">Elem</span><span class="params">()</span> <span class="title">Value</span></span></div><div class="line">//<span class="title">Elem</span> <span class="title">returns</span> <span class="title">the</span> <span class="title">value</span> <span class="title">that</span> <span class="title">the</span> <span class="title">interface</span> <span class="title">v</span> <span class="title">contains</span> <span class="title">or</span> <span class="title">that</span> <span class="title">the</span> <span class="title">pointer</span> <span class="title">vpoints</span> <span class="title">to</span>. </div><div class="line">//<span class="title">It</span> <span class="title">panics</span> <span class="title">if</span> <span class="title">v</span>'<span class="title">s</span> <span class="title">Kind</span> <span class="title">is</span> <span class="title">not</span> <span class="title">Interface</span> <span class="title">or</span> <span class="title">Ptr</span>. <span class="title">It</span> <span class="title">returns</span> <span class="title">the</span> <span class="title">zeroValue</span> <span class="title">if</span> <span class="title">v</span> <span class="title">is</span> <span class="title">nil</span>.</div></pre></td></tr></table></figure>
+</li>
+</ol>
+   <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">var</span> x <span class="keyword">float64</span> = <span class="number">1.1</span></div><div class="line">    p := reflect.ValueOf(&amp;x)</div><div class="line">    fmt.Println(<span class="string">"type of p:"</span>,p.Type())</div><div class="line">    v := p.Elem()</div><div class="line">    fmt.Println(<span class="string">"type of v:"</span>,v.Type())</div><div class="line">    fmt.Println(<span class="string">"settability of v:"</span>,v.CanSet())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>   虽然p是不可修改的，但是v可以修改。这种方法思路上类似引用传参，传入地址，修改地址所指向的具体值</p>
+
       
 
       
@@ -523,15 +591,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分页</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
         		</li>
       		
 		</ul>
@@ -552,7 +612,82 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/16/jQuery实现简单分页/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/06/09/Golang学习笔记（二）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Golang学习笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/07/Golang学习笔记（一）/">Golang学习笔记（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/07/Golang学习笔记（一）/" class="archive-article-date">
+  	<time datetime="2018-06-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="研究方向"><a href="#研究方向" class="headerlink" title="研究方向"></a>研究方向</h3><p>golang<br>区块链<br>以太坊源码<br>以太坊智能合约<br>代币合约<br>共识机制</p>
+        
+          <a class="article-more-a" href="/2018/06/07/Golang学习笔记（一）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术/" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/07/Golang学习笔记（一）/">展开全文 >></a>
         </p>
       
 
@@ -572,7 +707,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -584,7 +719,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Joker208
+    		&copy; 2020 Joker208
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -663,43 +798,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">.NET</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">邮件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CarouFredSel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分页</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">天气插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -711,11 +814,35 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">验证码</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">.NET</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">邮件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分页</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">天气插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -723,7 +850,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">一键分享</a>
+                <a href="javascript:void(0)" class="js-tag color4">验证码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,6 +863,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">一键分享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
               </li>
             
             <div class="clearfix"></div>
@@ -787,7 +926,7 @@
             </li>
           
             <li class="search-li">
-              <a href="http://onepiece.cc/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>海贼小站</a>
+              <a href="https://one-piece.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>海贼小站（停更）</a>
             </li>
           
             <li class="search-li">
@@ -802,7 +941,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">尼古拉斯·路痴后入心机原则博学焦&lt;br&gt;北漂程序猿&lt;br&gt;一条梦想翻身的咸鱼&lt;br&gt;动漫游戏爱好者</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">找工作中&lt;br&gt;一条有梦想的咸鱼&lt;br&gt;动漫游戏爱好者</div>
   	  	
     	</section>
     
