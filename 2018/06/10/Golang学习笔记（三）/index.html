@@ -8,19 +8,16 @@
   <link rel="dns-prefetch" href="https://joker208.github.io">
   <title>Golang学习笔记（三） | Joker208的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="golang  并行goroutines、信道和死锁（一）goroutines1234567891011func loop() &amp;#123;    for i := 0; i &amp;lt; 10; i++ &amp;#123;        fmt.Printf(&quot;%d &quot;, i)    &amp;#125;&amp;#125;func main() &amp;#123;    go loop()    loop()&amp;#125;
-g">
+  <meta name="description" content="golang  并行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Golang学习笔记（三）">
 <meta property="og:url" content="https://joker208.github.io/2018/06/10/Golang学习笔记（三）/index.html">
 <meta property="og:site_name" content="Joker208的博客">
-<meta property="og:description" content="golang  并行goroutines、信道和死锁（一）goroutines1234567891011func loop() &amp;#123;    for i := 0; i &amp;lt; 10; i++ &amp;#123;        fmt.Printf(&quot;%d &quot;, i)    &amp;#125;&amp;#125;func main() &amp;#123;    go loop()    loop()&amp;#125;
-g">
-<meta property="og:updated_time" content="2020-05-18T10:14:59.792Z">
+<meta property="og:description" content="golang  并行">
+<meta property="og:updated_time" content="2020-05-18T15:17:19.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang学习笔记（三）">
-<meta name="twitter:description" content="golang  并行goroutines、信道和死锁（一）goroutines1234567891011func loop() &amp;#123;    for i := 0; i &amp;lt; 10; i++ &amp;#123;        fmt.Printf(&quot;%d &quot;, i)    &amp;#125;&amp;#125;func main() &amp;#123;    go loop()    loop()&amp;#125;
-g">
+<meta name="twitter:description" content="golang  并行">
   
     <link rel="alternative" href="/atom.xml" title="Joker208的博客" type="application/atom+xml">
   
@@ -190,7 +187,8 @@ g">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="golang-并行"><a href="#golang-并行" class="headerlink" title="golang  并行"></a>golang  并行</h2><h3 id="goroutines、信道和死锁"><a href="#goroutines、信道和死锁" class="headerlink" title="goroutines、信道和死锁"></a>goroutines、信道和死锁</h3><h4 id="（一）goroutines"><a href="#（一）goroutines" class="headerlink" title="（一）goroutines"></a>（一）goroutines</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    loop()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="golang-并行"><a href="#golang-并行" class="headerlink" title="golang  并行"></a>golang  并行</h2><a id="more"></a>
+<h3 id="goroutines、信道和死锁"><a href="#goroutines、信道和死锁" class="headerlink" title="goroutines、信道和死锁"></a>goroutines、信道和死锁</h3><h4 id="（一）goroutines"><a href="#（一）goroutines" class="headerlink" title="（一）goroutines"></a>（一）goroutines</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loop</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</div><div class="line">        fmt.Printf(<span class="string">"%d "</span>, i)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">go</span> loop()</div><div class="line">    loop()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>goroutine还没来得及跑loop的时候，主函数已经退出</p>
 <p>这时需要一个类似join的东西来阻塞住主线。那就是信道</p>
 <h4 id="（二）信道"><a href="#（二）信道" class="headerlink" title="（二）信道"></a>（二）信道</h4><p>信道是goroutine之间互相通讯的东西。<br>类似我们Unix上的管道（可以在进程间传递消息）， 用来goroutine之间发消息和接收消息。<br>其实，就是在做goroutine之间的内存共享。</p>
@@ -476,15 +474,39 @@ g">
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">host</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hashtable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,7 +538,11 @@ g">
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鸡汤</a>
+                <a href="javascript:void(0)" class="js-tag color3">crontab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,7 +550,31 @@ g">
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gorm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openVPN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">以太坊</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">鸡汤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,7 +582,11 @@ g">
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">ss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">代理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,7 +594,7 @@ g">
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Golang</a>
+                <a href="javascript:void(0)" class="js-tag color4">马来西亚🇲🇾</a>
               </li>
             
             <div class="clearfix"></div>
